@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#6099FF" offset="0%"></stop>
+            <stop stop-color="#4781EC" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="多端新建模板页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="金山文档-表单选择要创建的场景" transform="translate(-575.000000, -417.000000)">
+            <g id="页面/我的文档" transform="translate(277.000000, 156.000000)">
+                <g id="编组-4" transform="translate(210.000000, 211.000000)">
+                    <g id="引导小圆" transform="translate(88.000000, 50.000000)">
+                        <rect id="Rectangle-19" fill="url(#linearGradient-1)" x="0" y="0" width="38" height="38" rx="3"></rect>
+                        <circle id="椭圆形" stroke="#FFFFFF" stroke-width="2" cx="10" cy="14" r="2"></circle>
+                        <rect id="矩形" fill="#FFFFFF" x="16" y="12" width="15" height="4" rx="2"></rect>
+                        <circle id="椭圆形" stroke="#FFFFFF" stroke-width="2" opacity="0.7" cx="10" cy="23" r="2"></circle>
+                        <rect id="矩形" fill="#FFFFFF" opacity="0.7" x="16" y="21" width="15" height="4" rx="2"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

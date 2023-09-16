@@ -1,0 +1,39 @@
+@import '../../common.scss';
+.item-link {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 21px;
+  cursor: pointer;
+  border-radius: 6px;
+  &:hover {
+    .link-title {
+      color: #0a6cff;
+    }
+  }
+}
+
+.active {
+  background-color: rgba(10, 108, 255, 0.1);
+  .link-title {
+    color: #0a6cff;
+  }
+}
+
+.link-left-icon {
+  width: 20px;
+  height: 20px;
+}
+.link-title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 8px;
+  color: rgba(0, 0, 0, 0.85);
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#76D0FF" offset="0%"></stop>
+            <stop stop-color="#15B7F7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="多端新建模板页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="金山文档-表单选择要创建的场景" transform="translate(-819.000000, -637.000000)">
+            <g id="页面/我的文档" transform="translate(277.000000, 156.000000)">
+                <g id="编组-8" transform="translate(454.000000, 431.000000)">
+                    <g id="05-图标/格式图标/文件夹-30px" transform="translate(88.000000, 50.000000)">
+                        <rect id="Rectangle-19" fill="url(#linearGradient-1)" x="0" y="0" width="38" height="38" rx="3.8"></rect>
+                        <g id="导出" transform="translate(10.000000, 8.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <path d="M18,8.05177219 L18,20.3412698 L18,20.3412698 C18,21.2573612 17.2836556,22 16.4,22 L1.6,22 C0.7163444,22 0,21.2573612 0,20.3412698 L0,1.65873016 C0,0.742638788 0.7163444,0 1.6,0 L9.69258884,0 C10.4856339,2.98409193e-16 11.2483514,0.304763826 11.8230249,0.851271734 L17.0389313,5.81153917 C17.6526,6.39513111 18,7.20491397 18,8.05177219 Z" id="形状结合"></path>
+                        </g>
+                        <rect id="矩形" fill-opacity="0.7" fill="#53C7FC" x="13" y="24" width="9" height="2" rx="1"></rect>
+                        <rect id="矩形" fill="#53C7FC" x="13" y="20" width="12" height="2" rx="1"></rect>
+                        <path d="M20.722,8 L28,14.412 L28,15 L22.3070931,15 C21.0329208,15 20,13.9670792 20,12.6929069 L20,8.00045282 L20.722,8 Z" id="形状结合" fill="#2CBDF9" opacity="0.21"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 104px;
+  width: 434px;
+  padding: 16px;
+  .text {
+    color: rgba(8, 14, 23, 0.66);
+    font-size: 14px;
+  }
+  .input {
+    height: 40px;
+    flex: 1;
+  }
+}

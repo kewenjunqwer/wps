@@ -1,0 +1,12 @@
+@import '../form_header/style.module.scss';
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  -webkit-box-orient: vertical;
+  .banner {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="10px" viewBox="0 0 11 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="多端新建模板页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="表单首页" transform="translate(-869.000000, -334.000000)">
+            <g id="编组-6" transform="translate(283.000000, 326.000000)">
+                <g id="编组-4" transform="translate(517.996396, 1.000000)">
+                    <g id="白天箭头" transform="translate(68.109690, 7.000000)">
+                        <g id="图标/浅色/按钮/10px/下拉选项" transform="translate(0.029972, 0.000000)">
+                            <rect id="#10" fill-opacity="0.7" fill="#FFF2CC" fill-rule="nonzero" opacity="0" x="0" y="0" width="10" height="10"></rect>
+                            <path d="M2.12764357,3.80697031 L4.60532389,6.99255929 C4.77485891,7.21053288 5.08899671,7.24980011 5.30697031,7.08026509 C5.3397325,7.05478338 5.3691944,7.02532148 5.39467611,6.99255929 L7.87235643,3.80697031 C8.04189145,3.58899671 8.00262422,3.27485891 7.78465063,3.10532389 C7.69688419,3.0370611 7.58886825,3 7.47768032,3 L2.52231968,3 C2.24617731,3 2.02231968,3.22385763 2.02231968,3.5 C2.02231968,3.61118793 2.05938078,3.71920387 2.12764357,3.80697031 Z" id="路径" fill="#727E96"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

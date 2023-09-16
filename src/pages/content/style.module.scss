@@ -1,0 +1,82 @@
+@import '../../common.scss';
+
+.content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafb;
+}
+
+.content-container {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.container-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-bottom {
+  padding: 0 20px;
+  border-radius: 12px 0px 0px 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  flex: 1;
+}
+
+.hot-container {
+  display: flex;
+  flex-direction: column;
+
+  .hot-container-top {
+  }
+}
+
+.hot-list-wrap {
+  padding: 0px 32px 20px;
+  background: linear-gradient(180deg, #f9fafb 0%, #fff 100%);
+  height: 126px;
+
+  .list {
+    display: flex;
+    gap: 24px;
+    overflow: auto;
+    width: calc(100vw - 345px);
+  }
+}
+
+.hot-title-wrap {
+  height: 64px;
+  padding: 16px 32px;
+  user-select: none;
+
+  .title {
+    margin: 0;
+    font-family: 'PingFang SC';
+    font-weight: 600;
+    font-size: 20px;
+    color: rgba(8, 14, 23, 0.9);
+  }
+}
+
+.more-template {
+  outline: 0;
+  border: none;
+
+  &:hover {
+    background-color: rgba(8, 14, 23, 0.06) !important;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .hot-list-wrap {
+    .list {
+      width: calc(100vw - 245px) !important;
+    }
+  }
+}

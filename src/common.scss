@@ -1,0 +1,106 @@
+// $text-color-1: ;
+._flex {
+  display: flex;
+}
+
+_flex_1 {
+  flex: 1;
+}
+
+.flex_colum {
+  flex-direction: column;
+}
+
+.select_none {
+  user-select: none;
+}
+
+._inb {
+  display: inline-block;
+}
+
+._rfsc {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+._rsbc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+._cfsfs {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+._rfbfs {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+._rfcsf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._bgc {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.flex_bt_center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-come {
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+}
+
+.flex_ac_jc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-active {
+  color: #0a6cff;
+}
+
+.icon-active {
+  // background-color: #0a6cff;
+}
+
+.text-hover {
+  &:hover {
+    background-color: rgba(8, 14, 23, 0.06);
+  }
+}
+
+.text-bg-active {
+  background-color: rgba(8, 14, 23, 0.06);
+}
+
+.ellipsis {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+}
+
+._cursor {
+  cursor: pointer;
+
+}

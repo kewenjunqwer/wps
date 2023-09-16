@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="入口" transform="translate(-999.000000, -217.000000)">
+            <g id="编组-3备份-5" transform="translate(949.000000, 197.000000)">
+                <g id="新建大图标备份" transform="translate(50.000000, 20.000000)">
+                    <rect id="矩形备份-5" stroke="#E7E9EB" fill="#F7F7F7" x="5.3" y="3.7" width="37.4" height="43.8" rx="2.5"></rect>
+                    <rect id="矩形备份-9" fill="#E6E6E7" x="10.4" y="34.4" width="28" height="2.4"></rect>
+                    <rect id="矩形备份-11" fill="#E6E6E7" x="10.4" y="28" width="28" height="2.4"></rect>
+                    <rect id="矩形备份-10" fill="#E6E6E7" x="10.4" y="40" width="28" height="2.4"></rect>
+                    <g id="编组" transform="translate(10.400000, 10.400000)" stroke="#3CBB7B" stroke-width="3">
+                        <circle id="椭圆形" cx="8" cy="6.4" r="4.9"></circle>
+                        <line x1="4" y1="9.6" x2="0" y2="12.8" id="路径-7"></line>
+                    </g>
+                    <rect id="矩形备份-5" fill="#E6E6E7" x="28" y="13.6" width="10.4" height="2.4"></rect>
+                    <rect id="矩形备份-6" fill="#E6E6E7" x="28" y="19.2" width="10.4" height="2.4"></rect>
+                    <path d="M14.4,3.2 L33.6,3.2 L33.6,4.92 C33.6,6.17920923 32.5792092,7.2 31.32,7.2 L16.68,7.2 C15.4207908,7.2 14.4,6.17920923 14.4,4.92 L14.4,3.2 L14.4,3.2 Z" id="形状结合备份-4" fill="#E6E6E7"></path>
+                    <circle id="椭圆形备份-4" fill="#E6E6E7" cx="24" cy="3.2" r="3.2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

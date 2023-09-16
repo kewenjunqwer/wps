@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>新建大图标/接龙</title>
+    <g id="新建大图标/接龙" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16.0461202,3 L43.9538798,3 C45.6362055,3 47,4.36379448 47,6.04612022 L47,11.9538798 C47,13.6362055 45.6362055,15 43.9538798,15 L16.0461202,15 C14.3637945,15 13,13.6362055 13,11.9538798 L13,6.04612022 C13,4.36379448 14.3637945,3 16.0461202,3 Z" id="矩形" fill="#F7F7F7"></path>
+        <path d="M16.0461202,18 L43.9538798,18 C45.6362055,18 47,19.3637945 47,21.0461202 L47,26.9538798 C47,28.6362055 45.6362055,30 43.9538798,30 L16.0461202,30 C14.3637945,30 13,28.6362055 13,26.9538798 L13,21.0461202 C13,19.3637945 14.3637945,18 16.0461202,18 Z" id="矩形" fill="#EDEDED"></path>
+        <path d="M16.0461202,33 L43.9538798,33 C45.6362055,33 47,34.3637945 47,36.0461202 L47,41.9538798 C47,43.6362055 45.6362055,45 43.9538798,45 L16.0461202,45 C14.3637945,45 13,43.6362055 13,41.9538798 L13,36.0461202 C13,34.3637945 14.3637945,33 16.0461202,33 Z" id="矩形" fill="#E4E4E4"></path>
+        <text id="1" font-family="HYe0gj, HYChaoCuYuanJ" font-size="13.4" font-weight="normal" fill="#1B96FD">
+            <tspan x="2" y="13">1</tspan>
+        </text>
+        <text id="2" font-family="HYe0gj, HYChaoCuYuanJ" font-size="13.4" font-weight="normal" fill="#1B96FD">
+            <tspan x="2" y="28">2</tspan>
+        </text>
+        <text id="3" font-family="HYe0gj, HYChaoCuYuanJ" font-size="13.4" font-weight="normal" fill="#1B96FD">
+            <tspan x="2" y="43">3</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="99.5765953%" y2="99.5765953%" id="linearGradient-1">
+            <stop stop-color="#FF7B7F" offset="0%"></stop>
+            <stop stop-color="#FB5F64" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="多端新建模板页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="金山文档-表单选择要创建的场景" transform="translate(-819.000000, -417.000000)">
+            <g id="页面/我的文档" transform="translate(277.000000, 156.000000)">
+                <g id="编组-10" transform="translate(454.000000, 211.000000)">
+                    <g id="引导小圆" transform="translate(88.000000, 50.000000)">
+                        <rect id="Rectangle-19" fill="url(#linearGradient-1)" x="0" y="0" width="38" height="38" rx="3"></rect>
+                        <g id="导出" transform="translate(19.000000, 19.000000) scale(1, -1) translate(-19.000000, -19.000000) translate(10.000000, 8.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <path d="M18,7.77255795 L18,20.3412698 L18,20.3412698 C18,21.2573612 17.2836556,22 16.4,22 L1.6,22 C0.7163444,22 0,21.2573612 0,20.3412698 L0,1.65873016 C0,0.742638788 0.7163444,0 1.6,0 L9.95265032,0 C10.5787385,-5.59099749e-16 11.1808839,0.240603021 11.6345735,0.672056632 L17.2412615,6.00395293 C17.7257368,6.46468341 18,7.10398568 18,7.77255795 Z" id="形状结合"></path>
+                        </g>
+                        <path d="M20.722,23 L28,29.412 L28,30 L21.8213893,30 C20.8154638,30 20,29.1845362 20,28.1786107 L20,23.0004528 L20.722,23 Z" id="形状结合" fill="#FD9EA1" opacity="0.3" transform="translate(24.000000, 26.500000) scale(1, -1) translate(-24.000000, -26.500000) "></path>
+                        <path d="M14.5087891,20.5283203 L15.3085938,18.4775391 L19.0478516,18.4775391 L19.7382812,20.5283203 L21.6386719,20.5283203 L18.4941406,10.8691406 L16.0195312,10.8691406 L12.6904297,20.5283203 L14.5087891,20.5283203 Z M15.7939453,16.7753906 L17.2568359,12.7695312 L18.6035156,16.7685547 L15.7939453,16.7753906 Z" id="A" fill="#FC6A6E" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

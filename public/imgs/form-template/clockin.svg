@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <defs>
+        <linearGradient x1="9.44824219%" y1="3.61328125%" x2="86.5260074%" y2="89.2758018%" id="linearGradient-1">
+            <stop stop-color="#B392F2" offset="0%"></stop>
+            <stop stop-color="#986ECB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="多端新建模板页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="金山文档-表单选择要创建的场景" transform="translate(-1063.000000, -417.000000)">
+            <g id="页面/我的文档" transform="translate(277.000000, 156.000000)">
+                <g id="编组-9" transform="translate(698.000000, 211.000000)">
+                    <g id="05-图标/格式图标/文件夹-30px" transform="translate(88.000000, 50.000000)">
+                        <rect id="Rectangle-19" fill="url(#linearGradient-1)" x="0" y="0" width="38" height="38" rx="3.8"></rect>
+                        <g id="编组" transform="translate(8.880000, 8.000000)">
+                            <path d="M10.12,23 C10.6491217,23 20.24,16.7927289 20.24,9.58333333 C20.24,4.29060448 15.7091217,0 10.12,0 C4.53087833,0 0,4.29060448 0,9.58333333 C0,16.7927289 9.59087833,23 10.12,23 Z" id="椭圆形" fill-opacity="0.4" fill="#FFFFFF"></path>
+                            <ellipse id="椭圆形" fill="#FFFFFF" cx="10.12" cy="9.86956522" rx="7.7" ry="7.60869565"></ellipse>
+                            <rect id="矩形" fill="#AB88DA" x="9.12" y="9" width="6" height="2" rx="1"></rect>
+                            <rect id="矩形" fill="#AB88DA" x="9.12" y="4" width="2" height="7" rx="1"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

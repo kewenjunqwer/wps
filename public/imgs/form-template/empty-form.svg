@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="202px" height="254px" viewBox="0 0 202 254" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 5备份</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="202" height="254" rx="4"></rect>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="创建-模版-加载中" transform="translate(-516.000000, -994.000000)">
+            <g id="编组-5备份" transform="translate(516.000000, 994.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形备份" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="矩形" fill="#FFFFFF" mask="url(#mask-2)" x="0" y="0" width="202" height="16"></rect>
+                <rect id="矩形备份-3" fill="#FFFFFF" mask="url(#mask-2)" x="0" y="0" width="16" height="254"></rect>
+                <rect id="矩形备份-4" fill="#FFFFFF" mask="url(#mask-2)" x="186" y="0" width="16" height="254"></rect>
+                <rect id="矩形备份-2" fill="#FFFFFF" mask="url(#mask-2)" x="0" y="238" width="202" height="16"></rect>
+                <rect id="矩形备份-5" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="34" width="88" height="16" rx="2"></rect>
+                <rect id="矩形备份-7" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="105" width="88" height="16" rx="2"></rect>
+                <rect id="矩形备份-9" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="176" width="88" height="16" rx="2"></rect>
+                <rect id="矩形备份-6" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="62" width="154" height="16" rx="2"></rect>
+                <rect id="矩形备份-8" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="133" width="135" height="16" rx="2"></rect>
+                <rect id="矩形备份-10" fill="#F5F6F7" mask="url(#mask-2)" x="24" y="204" width="135" height="16" rx="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="wps-pc-题型" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="表单首页" transform="translate(-510.000000, -263.000000)" fill="#949AAE">
+            <g id="通用按钮" transform="translate(494.000000, 175.000000)">
+                <g id="未归类/复制" transform="translate(16.000000, 88.000000)">
+                    <path d="M2,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,5 L14,5 L1,5 L1,2 C1,1.44771525 1.44771525,1 2,1 Z" id="矩形"></path>
+                    <path d="M1,6 L5,6 L5,14 L2,14 C1.44771525,14 1,13.5522847 1,13 L1,6 L1,6 Z" id="矩形备份"></path>
+                    <path d="M6,6 L14,6 L14,13 C14,13.5522847 13.5522847,14 13,14 L6,14 L6,14 L6,6 Z" id="矩形备份-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

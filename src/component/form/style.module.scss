@@ -1,0 +1,29 @@
+@import '../../common.scss';
+@import '../../pages/content/style.module.scss';
+.form-wrap {
+  padding: 0 20px;
+  border-radius: 12px 0px 0px 12px;
+  position: relative;
+  height: 100%;
+}
+.ksapc-loading {
+  height: 100%;
+  position: relative;
+}
+.ant-spin-container {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  transition: opacity 0.3s;
+  .list {
+    height: 100%;
+  }
+}
+
+.delModal {
+  .ant-btn-primary {
+    color: #ffffff;
+    border-color: #e12e2e;
+    background: #e12e2e;
+  }
+}

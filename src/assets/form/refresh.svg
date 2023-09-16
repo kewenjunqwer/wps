@@ -1,0 +1,16 @@
+<svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={styles.freshIcon}
+            >
+              <path
+                d="M13 12.1536C11.8077 13.5873 10.0104 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C10.5197 1.5 12.7046 2.93376 13.7833 5.02996L13.875 5.25M14.35 1.25V5.25H10.35"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>

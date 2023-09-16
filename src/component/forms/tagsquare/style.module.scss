@@ -1,0 +1,22 @@
+@import '../../../common.scss';
+.tag-wrap {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  .content {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+  }
+  .icon {
+    position: absolute;
+    z-index: 1003;
+  }
+}
+
+.tags-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,54 @@
+@import '../../../../common.scss';
+
+.tag-wrap {
+  display: flex;
+  align-items: center;
+
+  .tag-close {
+    transform: rotate(180deg);
+    color: #0a6cff;
+  }
+}
+
+.tag-content {
+  width: 240px;
+  padding: 16px;
+
+  .list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .top {
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    margin: 2px 0;
+    justify-content: space-between;
+  }
+
+  .gap-line {
+    display: flex;
+    width: 100%;
+    min-width: 100%;
+    margin: 2px !important;
+    height: 1px;
+    color: rgba(8, 14, 23, 0.9);
+    font-size: 16px !important;
+    line-height: 24px;
+    font-weight: 600;
+    border-top: 1px solid transparent;
+    border-top-color: rgba(8, 14, 23, 0.08);
+  }
+
+  .bottom {
+    justify-content: flex-start;
+
+    .addIcon {
+      margin-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,350 @@
+@import '../../../common.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 20px;
+  height: 38px;
+
+  .checkbox {
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  padding: 16px 12px 16px 32px;
+  height: 56px;
+  position: relative;
+  flex: 1;
+}
+
+.left {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: rgba(8, 14, 23, 0.9);
+
+  .item-wrap {
+    max-width: 200px;
+    min-width: 136px;
+    display: flex;
+    align-items: center;
+    visibility: visible;
+    padding-left: 12px;
+  }
+
+  .left-1 {
+    padding-right: 52px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 676;
+    max-width: 676px;
+    min-width: 314px;
+    flex: 1;
+    width: 676px;
+    height: 100%;
+
+    .select-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+
+  .left-2 {
+    height: 100%;
+  }
+
+  .left-3 {
+    height: 100%;
+  }
+
+  .left-4 {
+    min-width: 145px;
+  }
+
+  .left-5 {
+    flex: unset;
+    min-width: 105px !important;
+  }
+}
+
+.right {
+  visibility: visible;
+  width: 148px;
+  color: rgba(8, 14, 23, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 766px) {
+  .left {
+    .left-1 {
+      width: 314px;
+      flex: unset;
+    }
+
+    .left-2 {
+    }
+
+    .left-3 {
+      display: none;
+    }
+
+    .left-5 {
+    }
+
+    .left-5 {
+    }
+  }
+}
+
+@media screen and (max-width: 902px) {
+  .form-header-list {
+    .wrap {
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+  }
+
+  .left {
+    .left-1 {
+      width: 240px;
+      flex: unset;
+    }
+
+    .left-2 {
+      display: none;
+    }
+
+    .left-3 {
+    }
+
+    .left-5 {
+    }
+
+    .left-5 {
+    }
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .left {
+    .left-1 {
+      max-width: 314px;
+      min-width: unset;
+    }
+
+    .left-2 {
+      width: 60px;
+    }
+
+    .left-3 {
+    }
+
+    .left-5 {
+    }
+
+    .left-5 {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .left {
+    .left-1 {
+      max-width: 314px;
+      min-width: unset;
+    }
+
+    .left-2 {
+      width: 60px;
+    }
+
+    .left-3 {
+    }
+
+    .left-4 {
+      display: none;
+    }
+
+    j .left-5 {
+    }
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .left {
+    .left-1 {
+      max-width: 314px;
+      min-width: unset;
+    }
+
+    .left-2 {
+      width: 90px;
+    }
+
+    .left-3 {
+    }
+
+    .left-4 {
+    }
+
+    .left-5 {
+      max-width: 65px;
+      -webkit-box-flex: 65;
+      -webkit-flex: 65;
+      -ms-flex: 65;
+      flex: 65;
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .left {
+    .left-1 {
+      max-width: 314px;
+      min-width: unset;
+    }
+
+    .left-2 {
+      width: 90px;
+    }
+
+    .left-3 {
+    }
+
+    .left-4 {
+    }
+
+    .left-5 {
+      max-width: 112px;
+      -webkit-box-flex: 112;
+      -webkit-flex: 112;
+      -ms-flex: 112;
+      flex: 112;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .left {
+    .left-1 {
+    }
+
+    .left-2 {
+    }
+
+    .left-3 {
+    }
+
+    .left-4 {
+      max-width: 70px;
+
+      flex: 70;
+    }
+
+    .left-5 {
+      max-width: 76px;
+      -webkit-box-flex: 76;
+      -webkit-flex: 76;
+      -ms-flex: 76;
+      flex: 76;
+    }
+  }
+}
+
+@media screen and (max-width: 1236px) {
+  .left {
+    .left-1 {
+    }
+
+    .left-2 {
+    }
+
+    .left-3 {
+    }
+
+    .left-4 {
+      max-width: 80px;
+
+      flex: 80;
+    }
+
+    .left-5 {
+      max-width: 88px;
+      -webkit-box-flex: 88;
+      -webkit-flex: 88;
+      -ms-flex: 88;
+      flex: 88;
+    }
+  }
+}
+
+@media screen and (max-width: 1266px) {
+  .left {
+    .left-1 {
+    }
+
+    .left-2 {
+    }
+
+    .left-3 {
+      max-width: 136px;
+      min-width: unset;
+      flex: 136;
+    }
+
+    .left-4 {
+      max-width: 136px;
+      min-width: unset;
+
+      flex: 136;
+    }
+
+    .left-5 {
+      max-width: 112px;
+      min-width: unset;
+      -webkit-box-flex: 112;
+      -webkit-flex: 112;
+      -ms-flex: 112;
+      flex: 112;
+    }
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .left {
+    .left-1 {
+      max-width: 314px;
+      min-width: unset;
+    }
+
+    .left-2 {
+      max-width: 136px;
+      min-width: unset;
+      flex: 136;
+    }
+
+    .left-3 {
+    }
+
+    .left-5 {
+    }
+
+    .left-5 {
+    }
+  }
+}

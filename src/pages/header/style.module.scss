@@ -1,0 +1,213 @@
+@import '../../common.scss';
+
+.header {
+  height: 64px;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  background-color: #f9fafb;
+}
+
+.input-wrapper {
+
+  flex: 1;
+}
+
+.input-wrap {
+  width: 540px;
+}
+
+.input-prefix-icon {
+  color: #0a6cff;
+}
+
+.user-panel {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.gap-line {
+  width: 1px;
+  background-color: rgba(8, 14, 23, 0.24);
+  // height: 20px;
+}
+
+.info-tool {
+  display: flex;
+  gap: 24px;
+}
+
+.wechat-scan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9.5px;
+  cursor: pointer;
+}
+
+.avator-container {
+  display: flex;
+  align-items: center;
+}
+
+.ksc-app-content {
+  width: 326px;
+  padding: 16px;
+
+  .title-wrap {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .list {}
+}
+
+.wechat-content {
+  padding: 24px 16px;
+  display: flex;
+  gap: 32px;
+  color: rgba(8, 14, 23, 0.9);
+
+  .img-wrap {
+    width: 216px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    .title {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(8, 14, 23, 0.9);
+    }
+
+    .img {
+      height: 176px;
+    }
+  }
+
+  .gap-line {
+    width: 1px;
+    background: rgba(8, 14, 23, 0.12);
+  }
+
+  .footer-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(8, 14, 23, 0.46);
+  }
+}
+
+.user-content {
+  width: 262px;
+  padding: 12px;
+
+  .title {
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    color: rgba(8, 14, 23, 0.66);
+  }
+
+  .item-link {
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    color: rgba(8, 14, 23, 0.9);
+  }
+
+  .gap-line {
+    margin: 8px;
+    height: 1px;
+    background: rgba(24, 26, 31, 0.1);
+  }
+
+  .account-wrap {
+    .login-user-container {
+      overflow: auto;
+      max-height: 320px;
+
+      .login-user {
+        display: flex;
+        align-items: center;
+        padding: 5px 4px;
+        cursor: pointer;
+
+        .avator-wrap {
+          position: relative;
+        }
+
+        .nickname-wrap {
+          flex: 1;
+          margin-left: 8px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+        }
+      }
+    }
+
+    .other-login {
+      display: flex;
+      align-items: center;
+      padding: 8px 4px;
+      gap: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+.search-content {
+  width: 100%;
+  height: 100%;
+  padding: 48px 0px;
+}
+
+.search-content-popover {
+  width: 540px;
+  position: relative;
+  top: 10px;
+}
+
+.app-img {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  line-height: 0;
+}
+
+.avator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 995px) {
+  .input-wrap {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .input-wrap {
+    width: 420px !important;
+  }
+
+  .search-content-popover {
+    width: 420px !important;
+    position: relative;
+    top: 10px;
+  }
+}

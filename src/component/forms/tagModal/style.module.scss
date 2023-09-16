@@ -1,0 +1,23 @@
+.tag-create {
+  padding: 16px;
+
+  .title {
+    color: rgba(8, 14, 23, 0.66);
+  }
+
+  .input-wrap {
+    margin: 8px 0 16px 0;
+  }
+
+  .footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn-confirm {
+      color: #ffffff;
+      border-color: transparent;
+      background: var(--ksa-theme-color-disable);
+    }
+  }
+}
