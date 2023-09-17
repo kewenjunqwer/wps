@@ -15,6 +15,7 @@ export default function IconPopover(props: Iprops) {
   const { content, Icon, placement } = props;
   return (
     <Popover
+      destroyTooltipOnHide={true}
       className={styles['popover']}
       arrow={false}
       content={

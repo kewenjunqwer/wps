@@ -4,7 +4,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import styles from './style.module.scss';
 import { Avatar, Input, InputRef, Popover, Spin } from 'antd';
 import { useSearchForm } from '../../hooks/useSearchFroms';
-import { debounce } from 'lodash';
+import { debounce, divide } from 'lodash';
 import ApplicationLink from '../../component/applicationLink';
 
 import { userContext } from '../../context/user';
@@ -19,6 +19,8 @@ import { ReactComponent as AddIcon } from '../../assets/leftslider/add.svg';
 import Empty from '../../component/empty';
 import classNames from 'classnames';
 import { APPlicationLink } from '../../modal/base';
+import { serchForm } from '../../server/serchApi';
+import { formatTimeRelative } from '../../util';
 
 const useInfoLinks = {
   accountManagement: {
@@ -107,6 +109,24 @@ export default function Header() {
   const [searchContentOpen, setSearchContentOpen] = useState<boolean>(false);
   const intuRef = useRef<InputRef | null>(null);
 
+  const heigthKeyWord = (text: string, keord: string) => {
+    const arr = text.split(keord)
+    console.log(text, keord)
+    console.log(arr)
+    return arr.map((item, index) => {
+      if (index % 2 === 1) {
+        return <>
+          <span className={styles.highLight}>{keord}</span>
+          <span>{item}</span>
+        </>
+      } else {
+        return <span>{item}</span>
+      }
+
+    })
+
+  }
+
   // 头部标签icon对应的弹出内容
 
   const popoverContents = useMemo(() => {
@@ -190,6 +210,16 @@ export default function Header() {
               {!isloading && froms.length === 0 && (
                 <Empty imgUrl="/images/empty-search.png" title="暂无搜索结果"></Empty>
               )}
+              {
+                froms.length > 0 && <>
+                  {
+                    froms.map(item => <div className={classNames(styles['text-hover'], styles['_rsbc'])}>
+                      <div>{heigthKeyWord(item.title, intuRef.current?.input?.value as string)}</div>
+                      <span>{formatTimeRelative(item.create_ts)} 发布</span>
+                    </div>)
+                  }
+                </>
+              }
             </div>
           </Spin>
         );
@@ -197,7 +227,7 @@ export default function Header() {
     };
   }, [froms, userInfo, isloading]);
 
-  // 之后可以尝试修改
+  // 之后可以尝试修改搜索防抖
   const handleChange = useCallback(
     debounce((value: string) => {
       if (intuRef.current) {
@@ -218,6 +248,7 @@ export default function Header() {
       <div className={styles['input-wrapper']}>
         <div className={styles['input-wrap']}>
           <Popover
+            destroyTooltipOnHide={true}
             open={searchContentOpen}
             className={styles._rfcsf}
             placement="bottom"

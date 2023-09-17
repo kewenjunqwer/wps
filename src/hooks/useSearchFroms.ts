@@ -2,9 +2,10 @@ import { message } from 'antd';
 import { ISearchOption } from '../modal/serch';
 import { serchForm } from '../server/serchApi';
 import { useCallback, useEffect, useState } from 'react';
+import { IForm } from '../modal/form';
 
 export function useSearchForm() {
-  const [froms, setForms] = useState<[]>([]);
+  const [froms, setForms] = useState<IForm[]>([]);
   const [error, setError] = useState<string>('');
   const [isloading, setIsloading] = useState<boolean>(true);
 
