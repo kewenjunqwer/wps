@@ -86,6 +86,7 @@ export function FormItem({ item, title, formItemSet, operateIconClick, ondelete 
                   content={<span className={styles['tag_hover']}>{curTag.tag_name}</span>}
                 >
                   <div className={styles.item}>
+
                     <div style={{ backgroundColor: curTag.color }} className={styles.banner}></div>
                     <span>{curTag.tag_name}</span>
                   </div>
