@@ -1,7 +1,8 @@
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 
-import { useForms } from '../hooks/useMyCreateForms';
+import { useMyCreateForms } from '../hooks/useMyCreateForms';
 import {
+  ADdTagREQ,
   CreateShareForm,
   FormKinds,
   GetFormsByTag,
@@ -53,6 +54,10 @@ interface UserContext {
   _getFormByTag: (options: GetFormsByTag) => Promise<void>;
   setIsStarForm: React.Dispatch<React.SetStateAction<true | null>>;
   getForms: (tag_ids?: string[]) => void;
+  _createTagToForm: (option: ADdTagREQ) => Promise<void>
+  hasMore: boolean
+  loadMore: (tag_ids?: string[]) => Promise<void>
+
 }
 export const formContext = createContext<UserContext>({
   forms: [],
@@ -75,8 +80,11 @@ export const formContext = createContext<UserContext>({
   _getFormByTag: () => Promise.resolve(),
   setIsStarForm: () => { },
   getForms: () => { },
+  _createTagToForm: () => Promise.resolve(),
+  hasMore: true,
+  loadMore: () => Promise.resolve(),
 });
 
 export default function FormProvider(props: any) {
-  return <formContext.Provider value={useForms()}>{props.children}</formContext.Provider>;
+  return <formContext.Provider value={useMyCreateForms()}>{props.children}</formContext.Provider>;
 }

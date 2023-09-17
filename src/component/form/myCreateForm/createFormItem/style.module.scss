@@ -18,6 +18,15 @@
     top: 20px;
     width: 16px;
     height: 16px;
+    display: none;
+  }
+
+  &:hover {
+    .checkbox {
+
+      display: block;
+    }
+
   }
 
   .wrap {
@@ -109,6 +118,18 @@
   }
 }
 
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.banner {
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+}
+
 .collect-text {
   display: inline-block;
   height: 24px;
@@ -158,4 +179,13 @@
   &:hover {
     background-color: #e7f4ff;
   }
+}
+
+.tag_hover {
+  padding: 5px;
+
+}
+
+.open {
+  border-radius: 0 px;
 }

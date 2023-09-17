@@ -126,7 +126,7 @@ export default function FloatBtn() {
     [handleSetPosition]
   );
 
-  useEffect(() => {}, [dragElement, handleMouseDown, handleMouseMove, handleMouseUp]);
+  useEffect(() => { }, [dragElement, handleMouseDown, handleMouseMove, handleMouseUp]);
 
   const content = () => {
     return (
@@ -176,7 +176,7 @@ export default function FloatBtn() {
       }}
       className={styles['float-btn-wrap']}
     >
-      <Popover open={isOpen} arrow={false} content={content()} placement="top">
+      <Popover destroyTooltipOnHide={true} open={isOpen} arrow={false} content={content()} placement="top">
         <img className={styles['img']} src="/images/xiaomeng.png" alt="" />
       </Popover>
     </div>

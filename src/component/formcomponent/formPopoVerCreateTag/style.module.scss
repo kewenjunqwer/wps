@@ -1,1 +1,13 @@
 @import '../../tagcomponent/tagcolor/style.module.scss';
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.banner {
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+}

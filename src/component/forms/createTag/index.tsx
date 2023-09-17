@@ -15,6 +15,7 @@ export default function CreateTag() {
   return (
     <>
       <Popover
+        destroyTooltipOnHide={true}
         open={isOpen}
         onOpenChange={open => setIsopen(open)}
         trigger={'click'}

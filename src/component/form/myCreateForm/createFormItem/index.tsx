@@ -1,5 +1,5 @@
 import styles from './style.module.scss';
-import { Button, Checkbox } from 'antd';
+import { Button, Checkbox, Popover } from 'antd';
 import { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { ReactComponent as StarIcon } from '../../../../assets/form/star.svg';
@@ -11,6 +11,7 @@ import { formContext } from '../../../../context/form';
 import { PopoverItemLink } from '../../../formcomponent/popoverItemLink';
 import IconPopover from '../../../formcomponent/iconPopover';
 import Itag from '../../../itag';
+import { tagContext } from '../../../../context/tag';
 
 interface Props {
   item: IForm; // 单个表单数据
@@ -24,6 +25,9 @@ export function FormItem({ item, title, formItemSet, operateIconClick, ondelete 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   // 找到当前formItem的操作弹出项
   const { popoverContent, btnOperate } = formItemSet;
+  const { tags } = useContext(tagContext)
+  // 根据form中的tag_id找到所属的标签信息
+  const curTag = tags.filter(cur => cur.tag_id === item.tag_ids)[0]
 
   const operatePopoverContent = () => {
     if (formItemSet.popoverContent) {
@@ -72,7 +76,34 @@ export function FormItem({ item, title, formItemSet, operateIconClick, ondelete 
             </div>
             {/* 标签操作 */}
             <div className={classNames(styles['item-wrap'], styles['left-2'])}>
-              <div className={styles['tag-text-content']}></div>
+              {
+                curTag && <Popover
+                  destroyTooltipOnHide={true}
+                  rootClassName={styles.open}
+                  trigger={'hover'}
+                  placement='bottomRight'
+                  arrow={false}
+                  content={<span className={styles['tag_hover']}>{curTag.tag_name}</span>}
+                >
+                  <div className={styles.item}>
+                    <div style={{ backgroundColor: curTag.color }} className={styles.banner}></div>
+                    <span>{curTag.tag_name}</span>
+                  </div>
+                </Popover>
+              }
+
+
+              {/* <Popover>
+                {
+                  curTag &&
+                  <PopoverItemLink linkItem={{
+                    style: { justifyContent: 'flex-start' },
+                    suffix: <div style={{ backgroundColor: curTag.color }} className={styles.banner}></div>,
+                    title: curTag.tag_name
+                  }}></PopoverItemLink>
+
+                }
+              </Popover> */}
             </div>
             <div className={classNames(styles['item-wrap'], styles['left-3'])}>
               <div className={styles.text}>

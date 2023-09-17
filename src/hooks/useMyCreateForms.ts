@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import {
+  ADdTagREQ,
   CreateShareForm,
   FormKinds,
   GetFormsByTag,
@@ -11,6 +12,7 @@ import {
   UpdateForm,
 } from '../modal/form';
 import {
+  addTagToForm,
   createDuplicate,
   createShareForm,
   deleteForm,
@@ -93,13 +95,17 @@ const _forms = [
   },
 ];
 
-export function useForms() {
+export function useMyCreateForms() {
   const [forms, setForms] = useState<IForm[]>([]);
   const [error, setError] = useState<string>('');
   const [isloading, setIsLoading] = useState<boolean>(true);
   const [activeFormIds, setActiveFormIds] = useState<{ id: string; kind: FormKinds }[]>([]);
   const [searchParams, _] = useSearchParams();
   const [isStarForm, setIsStarForm] = useState<null | true>(null);
+  const [start, setStart] = useState<number>(0) // 从那条数据开始加载
+  const [hasMore, setHasMore] = useState<boolean>(true)  //是否有更多数据
+
+  const limit = 10  // 每次加载得条数
 
   const curFormKind = useMemo(() => {
     const scene = searchParams.get('scene') as Iscene;
@@ -129,11 +135,12 @@ export function useForms() {
       const { result, code, data } = await getFormMyCreate(options);
       setIsLoading(false);
       if (code === 0) {
-        setForms(data);
+        return data
       } else {
-        setError(result);
+        return []
       }
     } catch (error) {
+
       console.log(error);
     }
   }, []);
@@ -145,46 +152,76 @@ export function useForms() {
       const { result, code, data } = await getFormsByTag(options);
       setIsLoading(false);
       if (code === 0) {
-        setForms(data);
+        return data
       } else {
-        setError(result);
+        return []
       }
     } catch (error) {
+
       console.log(error);
     }
   }, []);
 
-
-  // 获取forms数据
-  const getForms = useCallback(
-    (tag_ids?: string[]) => {
-      const sidebar = searchParams.get('sidebar');
-      console.log(sidebar);
-      // 如果根据标签获取数据
-      if (tag_ids && tag_ids.length > 0) {
-        _getFormByTag({
-          kind: curFormKind as FormKinds[],
-          limit: 12,
-          star: isStarForm,
-          tag_ids,
-          _t: Date.now(),
-          start: 0,
-        });
+  // 获取我填写的
+  const _getFormMyFill = useCallback(async (options: ReqGetForm) => {
+    setIsLoading(true);
+    try {
+      const { result, code, data } = await getFormMyFill(options);
+      setIsLoading(false);
+      if (code === 0) {
+        return data
       } else {
-        const option = {
-          limit: 10,
-          start: 0,
-          kind: curFormKind as FormKinds[],
-          _t: Date.now(),
-          star: isStarForm,
-        };
-        if (sidebar === 'mycreate' || sidebar === null) {
-          _getFormMyCreate(option);
-        }
+        return []
       }
-    },
-    [_getFormByTag, _getFormMyCreate, curFormKind, isStarForm, searchParams]
+    } catch (error) {
+
+      console.log(error);
+    }
+  }, []);
+
+  // 获取获取数据得参数信息
+  const getOption = useCallback((start = 0, tag_ids?: string[]) => {
+    if (tag_ids && tag_ids.length > 0) {
+      const option = {
+        kind: curFormKind as FormKinds[],
+        limit,
+        star: isStarForm,
+        tag_ids,
+        _t: Date.now(),
+        start
+      }
+      return option
+    }
+
+  }, [curFormKind, isStarForm])
+
+  // 获取参数信息初始化数据数据
+  const getForms = useCallback(async (tag_ids?: string[]) => {
+    // 如果标签存在，则根据标签信息获取对应得form数据
+    if (tag_ids && tag_ids.length > 0) {
+      const data = await _getFormByTag(getOption(0, tag_ids) as GetFormsByTag);
+      data && setForms(data)
+    } else {
+      const data = await _getFormMyCreate(getOption(0) as ReqGetForm);
+      data && setForms(data)
+    }
+  },
+    [_getFormByTag, _getFormMyCreate, getOption]
   );
+
+  // 加载更多
+  const loadMore = useCallback(async (tag_ids?: string[]) => {
+    const curStart = start + forms.length
+    let data: IForm[] = []
+    if (tag_ids && tag_ids.length > 0) {
+      data = await _getFormByTag(getOption(curStart, tag_ids) as GetFormsByTag) as IForm[]
+    } else {
+      data = await _getFormMyCreate(getOption(curStart) as ReqGetForm) as IForm[]
+    }
+    data?.length < limit && setHasMore(false)
+    data.length > 0 && setForms(forms.concat(data))
+    setStart(curStart)
+  }, [_getFormByTag, _getFormMyCreate, forms, getOption, start])
 
   // 给选中的form进行标星
   const _starForm = useCallback(
@@ -355,6 +392,30 @@ export function useForms() {
     [error]
   );
 
+  // 给一个form打上标签
+  const _createTagToForm = useCallback(
+    async (option: ADdTagREQ) => {
+      // 先更新状态
+      const _newfroms = forms.map(item => {
+        if (item.item_id === option.item_id) {
+          return { ...item, tag_ids: option.tag_id }
+        } else {
+          return item
+        }
+      })
+      setForms(_newfroms)
+
+      try {
+        const { code, result } = await addTagToForm(option);
+        if (code !== 0) {
+          setError(result);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [forms]
+  );
   // 最新激活的formITEM
   const latestActiveForm = useMemo(() => {
     if (activeFormIds.length > 0) {
@@ -377,6 +438,7 @@ export function useForms() {
     activeFormIds,
     latestActiveForm,
     isStarForm,
+    hasMore,
     setIsStarForm,
     _getFormMyCreate,
     _getFormMyFill,
@@ -392,5 +454,7 @@ export function useForms() {
     printForm,
     _getFormByTag,
     getForms,
+    _createTagToForm,
+    loadMore
   };
 }

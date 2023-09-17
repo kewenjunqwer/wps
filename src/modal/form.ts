@@ -88,7 +88,7 @@ export interface CreateShareForm {
 
 export interface GetFormsByTag {
   kind: FormKinds[];
-  limit: 12;
+  limit: number
   star: null | boolean;
   start: number;
   tag_ids: string[];
@@ -113,4 +113,11 @@ export interface MYFillItem {
   title: string;
   user: { id: number; nickname: string; pic: string };
   version: number;
+}
+
+export interface ADdTagREQ {
+  item_id: string,
+  kind: FormKinds,
+  tag_id: string,
+  _t: number
 }

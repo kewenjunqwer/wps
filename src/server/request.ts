@@ -30,6 +30,7 @@ const interCeptUrl = [
   '/global/template/create',
   '/global/tag/form',
   '/global/fills/delete',
+  '/global/tag/form/create'
 ];
 
 // 请求拦截器

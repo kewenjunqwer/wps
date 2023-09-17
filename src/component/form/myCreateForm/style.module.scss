@@ -21,8 +21,7 @@
     cursor: pointer;
     gap: 4px;
 
-    .img {
-    }
+    .img {}
   }
 
   .complete {
@@ -33,7 +32,9 @@
 .ant-spin-container {
   display: flex;
   height: 100%;
+  width: 100%;
 }
+
 .empty {
   height: 100%;
   width: 100%;
@@ -41,10 +42,26 @@
   align-items: center;
   justify-content: center;
 }
+
 .form-wrap {
   height: 100%;
+  width: 100%;
 }
-.form_list {
+
+.formList {
   flex: 1;
-  height: 100%;
+  display: flex;
+
+}
+
+
+.list {
+  flex: 1;
+  width: 100%;
+  position: relative;
+
+  .ant-spin-container {
+    height: 100%;
+  }
+
 }

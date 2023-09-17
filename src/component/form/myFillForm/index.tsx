@@ -28,14 +28,19 @@ export default function MyFillForm() {
       <div className={classNames(styles['form-wrap'], styles._flex, styles.flex_colum)}>
         <div className={styles['ksapc-loading']}>
           <div className={styles['ant-spin-container']}>
-            {/* 头部列表属性 */}
-            <FormAttribute Nodes={Nodes}></FormAttribute>
-            {/* 我创建的列表项 */}
-            <MyFillFormList forms={myFillForms} />
-            <div className={classNames(styles.list, styles._flex, styles._rfcsf)}></div>
+            {
+              myFillForms.length > 0 && <>
+                {/* 头部列表属性 */}
+                <FormAttribute Nodes={Nodes}></FormAttribute>
+                {/* 我创建的列表项 */}
+                <MyFillFormList forms={myFillForms} />
+                {/* <div className={classNames(styles.list, styles._flex, styles._rfcsf)}></div> */}
+              </>
+            }
+
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }

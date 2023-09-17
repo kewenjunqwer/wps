@@ -35,6 +35,7 @@ export default function CreateTag(props: PropsWithChildren<Props>) {
   return (
     <>
       <Popover
+        destroyTooltipOnHide={true}
         arrow={false}
         open={isOpen}
         trigger={props.trigger ? props.trigger : 'click'}

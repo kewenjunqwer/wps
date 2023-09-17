@@ -7,7 +7,6 @@ export function useTags() {
   const [tags, setTags] = useState<ITag[]>([]);
   const [activeTag, setActiveTag] = useState<ITag | undefined>();
   const [selectTags, setSeletcTags] = useState<string[]>([]);
-  console.log('222222222222222222', selectTags);
 
   // 获取所有的tags
   const _getTags = useCallback(async () => {

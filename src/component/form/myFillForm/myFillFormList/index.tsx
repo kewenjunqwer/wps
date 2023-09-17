@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { Modal } from 'antd';
+import { List, Modal } from 'antd';
 import { MYFillItem } from '../../../../modal/form';
 import { MyFillItem } from '../myFIllItem';
 import { fillFormContext } from '../../../../context/myFillForm';
@@ -97,19 +97,22 @@ export default function MyFillFormList(props: Props) {
 
   return (
     <div>
-      {props.forms.map(cur => (
-        <MyFillItem
-          operateIconClick={(item: MYFillItem) => {
-            setOperateForm(item);
-          }}
-          title={formItemPopoverConfiguration[cur.kind].title}
-          formItemSet={formItemPopoverConfiguration[cur.kind]
-            .formItemSet(cur)
-            .find((ele: any) => ele.draft === cur.draft)}
-          key={cur.share_id}
-          item={cur}
-        />
-      ))}
+      <List dataSource={props.forms} renderItem={cur => <MyFillItem
+        operateIconClick={(item: MYFillItem) => {
+          setOperateForm(item);
+        }}
+        title={formItemPopoverConfiguration[cur.kind].title}
+        formItemSet={formItemPopoverConfiguration[cur.kind]
+          .formItemSet(cur)
+          .find((ele: any) => ele.draft === cur.draft)}
+        key={cur.share_id}
+        item={cur}
+      />} >
+
+      </List>
+      {/* {props.forms.map(cur => (
+        
+      ))} */}
       <Modal
         centered={true}
         destroyOnClose={true}
