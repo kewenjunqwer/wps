@@ -1,4 +1,3 @@
-import { ReqTagUpdate } from './../modal/tag';
 import { ApiRes } from '../modal/base';
 import request from './request';
 import {
@@ -6,7 +5,7 @@ import {
   CreateShareForm,
   GetFormsByTag,
   IForm,
-  MyFillItem,
+  MYFillItem,
   ReqDelForm,
   ReqGetForm,
   ReqRename,
@@ -22,7 +21,7 @@ export const getFormMyCreate = async (options: ReqGetForm) => {
 
 // 获取我填写的forms
 export const getFormMyFill = async (options: ReqGetForm) => {
-  const data: ApiRes<MyFillItem[]> = await request.post('/global/global_collections', options);
+  const data: ApiRes<MYFillItem[]> = await request.post('/global/global_collections', options);
   return data;
 };
 
@@ -74,11 +73,20 @@ export const delMyfillForm = async (options: { shareId: string; _t: number }) =>
   return data;
 };
 
-
 // 给一个表单添加标签
 export const addTagToForm = async (options: ADdTagREQ) => {
-  const data: ApiRes<{ item_id: string, tag_id: string, user_id: string }> = await request.post(`/global/tag/form/create`, options);
+  const data: ApiRes<{ item_id: string; tag_id: string; user_id: string }> = await request.post(
+    `/global/tag/form/create`,
+    options
+  );
   return data;
 };
 
-
+// 取消一个标签
+export const cancelTagToForm = async (options: ADdTagREQ) => {
+  const data: ApiRes<{ item_id: string; tag_id: string; user_id: string }> = await request.post(
+    `/global/tag/form/delete`,
+    options
+  );
+  return data;
+};

@@ -7,7 +7,6 @@ import { ReactComponent as OperateIcon } from '../../../assets/form/more.svg';
 import { PopoverItemLink } from '../../formcomponent/popoverItemLink';
 import { tagContext } from '../../../context/tag';
 import UpdateTag from '../../tagcomponent/updateTag';
-import { tagOpenContext } from '../tagPopover';
 
 interface Props {
   item: ITag;
@@ -104,7 +103,7 @@ export function TagList({ tagList }: TlistProps) {
   const [isShowDelModal, setIsShowModal] = useState<boolean>(false);
   const [activeTag, setIsAvtiveTag] = useState<ITag>();
   const { _delTags } = useContext(tagContext);
-  const { setTagOpen } = useContext(tagOpenContext);
+  // const { setTagOpen } = useContext(tagOpenContext);
 
   return (
     <>
@@ -112,7 +111,7 @@ export function TagList({ tagList }: TlistProps) {
         <TagItem
           onDelete={() => {
             setIsShowModal(true);
-            setTagOpen(false);
+            // setTagOpen(false);
           }}
           onSelect={() => {
             setIsAvtiveTag(item);

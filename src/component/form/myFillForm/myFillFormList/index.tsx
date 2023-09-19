@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
+import styles from '../../style.module.scss';
 
 import { List, Modal } from 'antd';
 import { MYFillItem } from '../../../../modal/form';
 import { MyFillItem } from '../myFIllItem';
 import { fillFormContext } from '../../../../context/myFillForm';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 interface Props {
   forms: MYFillItem[];
@@ -12,7 +14,7 @@ interface Props {
 export default function MyFillFormList(props: Props) {
   const [isShowdelModal, setIsShowDelModal] = useState<boolean>(false);
   const [operateForm, setOperateForm] = useState<MYFillItem>();
-  const { _deleteMyFillForm } = useContext(fillFormContext);
+  const { _deleteMyFillForm, hasMore, loadMore } = useContext(fillFormContext);
 
   const formItemPopoverConfiguration = {
     ksform: {
@@ -96,23 +98,45 @@ export default function MyFillFormList(props: Props) {
   };
 
   return (
-    <div>
-      <List dataSource={props.forms} renderItem={cur => <MyFillItem
-        operateIconClick={(item: MYFillItem) => {
-          setOperateForm(item);
+    <>
+      <div
+        className={styles.box}
+        id="scrollableDiv2"
+        style={{
+          height: 'calc(100vh - 356px)',
+          overflowY: 'auto',
         }}
-        title={formItemPopoverConfiguration[cur.kind].title}
-        formItemSet={formItemPopoverConfiguration[cur.kind]
-          .formItemSet(cur)
-          .find((ele: any) => ele.draft === cur.draft)}
-        key={cur.share_id}
-        item={cur}
-      />} >
+      >
+        <InfiniteScroll
+          dataLength={MyFillFormList.length}
+          next={loadMore}
+          hasMore={hasMore}
+          loader={<div></div>}
+          scrollableTarget="scrollableDiv2"
+          scrollThreshold={0.5}
+        >
+          <List
+            dataSource={props.forms}
+            rowKey={'share_id'}
+            renderItem={cur => (
+              <li>
+                <MyFillItem
+                  operateIconClick={(item: MYFillItem) => {
+                    setOperateForm(item);
+                  }}
+                  title={formItemPopoverConfiguration[cur.kind].title}
+                  formItemSet={formItemPopoverConfiguration[cur.kind]
+                    .formItemSet(cur)
+                    .find((ele: any) => ele.draft === cur.draft)}
+                  key={cur.share_id}
+                  item={cur}
+                />
+              </li>
+            )}
+          ></List>
+        </InfiniteScroll>
+      </div>
 
-      </List>
-      {/* {props.forms.map(cur => (
-        
-      ))} */}
       <Modal
         centered={true}
         destroyOnClose={true}
@@ -133,6 +157,6 @@ export default function MyFillFormList(props: Props) {
       >
         <div>{`「${operateForm?.title}」移除后，此表单填写入口将不在列表中展示`}</div>
       </Modal>
-    </div>
+    </>
   );
 }

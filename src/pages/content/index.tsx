@@ -7,7 +7,6 @@ import Form from '../../component/form';
 import { Button } from 'antd';
 import classNames from 'classnames';
 import { TemPlateList } from '../../component/template';
-import { TagProvider } from '../../context/tag';
 
 export default function Content() {
   const { _getTemplateInfo, templatesInfos } = useTemplateInfo();

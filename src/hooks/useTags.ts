@@ -2,11 +2,19 @@ import { useState, useCallback, useEffect } from 'react';
 import { ITag } from '../modal/tage';
 import { createTag, delTags, getTags, updateTag } from '../server/tagApi';
 import { ReqTagCreate, ReqTagDel, ReqTagUpdate } from '../modal/tag';
+import { message } from 'antd';
 
 export function useTags() {
   const [tags, setTags] = useState<ITag[]>([]);
   const [activeTag, setActiveTag] = useState<ITag | undefined>();
   const [selectTags, setSeletcTags] = useState<string[]>([]);
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    if (error) {
+      message.error(error);
+    }
+  }, [error]);
 
   // 获取所有的tags
   const _getTags = useCallback(async () => {
@@ -16,6 +24,7 @@ export function useTags() {
         setTags(data);
       } else {
         // 错误处理
+        setError(result);
       }
     } catch (error) {
       console.log(error);

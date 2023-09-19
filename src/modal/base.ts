@@ -22,7 +22,3 @@ export interface TemplatesInfo {
   customMainPicture: string;
   templateId: number;
 }
-interface a {
-
-}
-

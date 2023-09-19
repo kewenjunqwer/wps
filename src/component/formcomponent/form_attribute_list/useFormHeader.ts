@@ -15,27 +15,9 @@ export function useFormHeader() {
   const [starType, setStarType] = useState<null | true>(null);
   const { _getFormMyCreate } = useContext(formContext);
   const [searchParams, _] = useSearchParams();
-  const sidebar = searchParams.get('sidebar');
   const scene = searchParams.get('scene') as Iscene;
 
   // form下拉的select选项
-  const formTypeoptions: { value: string; label: string; type: FormKinds }[] = [
-    {
-      value: 'all',
-      label: 'all',
-      type: 'all',
-    },
-    {
-      value: 'ksform',
-      label: 'ksform',
-      type: 'ksform',
-    },
-    {
-      value: 'form_v2',
-      label: 'form_v2',
-      type: 'form_v2',
-    },
-  ];
 
   const sceneRealatedkind = {
     newform: ['form_v2', 'form', 'ksform'],
@@ -85,7 +67,6 @@ export function useFormHeader() {
   return {
     formTypeSelectOpen,
     setFormTypeSelectOpen,
-    formTypeoptions,
     starLinks,
     starType,
     formType,

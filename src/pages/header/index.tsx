@@ -1,68 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useContext, useRef, useState, useMemo } from 'react';
-import { LoadingOutlined } from '@ant-design/icons';
+import { useContext, useMemo } from 'react';
+
 import styles from './style.module.scss';
-import { Avatar, Input, InputRef, Popover, Spin } from 'antd';
-import { useSearchForm } from '../../hooks/useSearchFroms';
-import { debounce, divide } from 'lodash';
+import { Avatar, Popover } from 'antd';
+
 import ApplicationLink from '../../component/applicationLink';
 
 import { userContext } from '../../context/user';
-import { ReactComponent as SearchIcon } from '../../assets/header/search.svg';
+
 import { ReactComponent as WhchateIcon } from '../../assets/header/wechat.svg';
 import { ReactComponent as DocumentIcon } from '../../assets/header/document.svg';
 import { ReactComponent as MettingIcon } from '../../assets/header/metting.svg';
 import { ReactComponent as CalendarIcon } from '../../assets/header/calendar.svg';
 import { ReactComponent as AddIcon } from '../../assets/leftslider/add.svg';
+import { ReactComponent as CheckIcon } from '../../assets/form/checked.svg';
 
-
-import Empty from '../../component/empty';
 import classNames from 'classnames';
 import { APPlicationLink } from '../../modal/base';
-import { serchForm } from '../../server/serchApi';
-import { formatTimeRelative } from '../../util';
-
-const useInfoLinks = {
-  accountManagement: {
-    title: '账号管理',
-    links: [
-      {
-        title: '个人中心',
-        href: 'https://account.wps.cn/usercenter/apps',
-      },
-      {
-        title: '常用信息管理',
-        href: 'https://f.wps.cn/forms/commoninfo',
-      },
-      {
-        title: '偏好设置',
-        href: 'https://f.wps.cn/forms/preference-setting',
-      },
-      {
-        title: '退出账号',
-        href: 'https://f.wps.cn/home',
-      },
-    ],
-  },
-
-  swichAccount: {
-    title: '切换账号',
-    links: [
-      {
-        title: 'WPS_',
-        icon: '',
-        href: '',
-        checkMark: true,
-      },
-      {
-        title: '登陆其他账号',
-        icon: '',
-        href: '',
-        checkMark: true,
-      },
-    ],
-  },
-};
+import SearchForm from '../../component/search.ts';
 
 const aplicationlinks: APPlicationLink[] = [
   {
@@ -80,7 +35,9 @@ const aplicationlinks: APPlicationLink[] = [
     iconType: 'img',
   },
   {
-    iconUrl: <img className={styles['app-img']} src={'/images/application_center/needTodeal.png'} alt="" />,
+    iconUrl: (
+      <img className={styles['app-img']} src={'/images/application_center/needTodeal.png'} alt="" />
+    ),
     title: '待办',
     subtitle: '团队任务协作，多平台同步',
     href: 'https://todo.wps.cn/?ch=cloud',
@@ -94,7 +51,9 @@ const aplicationlinks: APPlicationLink[] = [
     iconType: 'img',
   },
   {
-    iconUrl: <img className={styles['app-img']} src={'/images/application_center/adressbook.png'} alt="" />,
+    iconUrl: (
+      <img className={styles['app-img']} src={'/images/application_center/adressbook.png'} alt="" />
+    ),
     title: '通讯录',
     subtitle: '添加伙伴，高效团队办公',
     href: 'https://docs.wps.cn/contact',
@@ -102,32 +61,56 @@ const aplicationlinks: APPlicationLink[] = [
   },
 ];
 
-
 export default function Header() {
-  const { froms, _searchForms, isloading } = useSearchForm();
-  const { userInfo } = useContext(userContext); // 去除用户信息
-  const [searchContentOpen, setSearchContentOpen] = useState<boolean>(false);
-  const intuRef = useRef<InputRef | null>(null);
-
-  const heigthKeyWord = (text: string, keord: string) => {
-    const arr = text.split(keord)
-    console.log(text, keord)
-    console.log(arr)
-    return arr.map((item, index) => {
-      if (index % 2 === 1) {
-        return <>
-          <span className={styles.highLight}>{keord}</span>
-          <span>{item}</span>
-        </>
-      } else {
-        return <span>{item}</span>
-      }
-
-    })
-
-  }
-
+  const { userInfo, _logOut, _changLoginAccount } = useContext(userContext); // 去除用户信息
   // 头部标签icon对应的弹出内容
+  const useInfoLinks = {
+    accountManagement: {
+      title: '账号管理',
+      links: [
+        {
+          title: '个人中心',
+          onclick: () => {
+            window.open('https://account.wps.cn/usercenter/apps');
+          },
+        },
+        {
+          onclick: () => {
+            window.open('https://f.wps.cn/forms/commoninfo');
+          },
+          title: '常用信息管理',
+        },
+        {
+          title: '偏好设置',
+          onclick: () => {
+            window.open('https://f.wps.cn/forms/preference-setting');
+          },
+        },
+        {
+          title: '退出账号',
+          onclick: _logOut,
+        },
+      ],
+    },
+
+    swichAccount: {
+      title: '切换账号',
+      links: [
+        {
+          title: 'WPS_',
+          icon: '',
+          href: '',
+          checkMark: true,
+        },
+        {
+          title: '登陆其他账号',
+          icon: '',
+          href: '',
+          checkMark: true,
+        },
+      ],
+    },
+  };
 
   const popoverContents = useMemo(() => {
     return {
@@ -150,13 +133,13 @@ export default function Header() {
           <div className={styles['wechat-content']}>
             <div className={styles['img-wrap']}>
               <div className={styles.title}>金山表单小程序</div>
-              <img className={styles.img} src="/images/wechat-left.png" alt="wps" />
+              <img alt={'wps'} className={styles.img} src="/images/wechat-left.png" />
               <div className={styles['footer-text']}>创建分享表单、查看统计</div>
             </div>
             <div className={styles['gap-line']}></div>
             <div className={styles['img-wrap']}>
               <div className={styles.title}>金山表单公众号</div>
-              <img className={styles.img} src="/images/wechat-right.png" alt="wps" />
+              <img alt={'wps'} className={styles.img} src="/images/wechat-right.png" />
               <div className={styles['footer-text']}>及时接收表单通知</div>
             </div>
           </div>
@@ -171,9 +154,7 @@ export default function Header() {
               <div
                 key={item.title}
                 className={classNames(styles['item-link'], styles['text-hover'])}
-                onClick={() => {
-                  window.open(item.href);
-                }}
+                onClick={item.onclick}
               >
                 {item.title}
               </div>
@@ -182,20 +163,38 @@ export default function Header() {
             <div className={styles['account-wrap']}>
               <div className={styles['title']}>{useInfoLinks.swichAccount.title}</div>
               <div className={styles['login-user-container']}>
-                <div className={styles['login-user']}>
-                  <div className={styles['avator-wrap']}>
-                    <Avatar shape="circle" src={userInfo?.avatar_url} />
-                  </div>
-                  <div className={styles['nickname-wrap']}>
-                    <div className={styles.name}>{userInfo?.nickname}</div>
-                    <div className={styles['ellipsis']} title="个人账号">
-                      个人账号
+                {userInfo.map(item => (
+                  <div
+                    key={item.userid}
+                    onClick={() => {
+                      if (!item.is_current) {
+                        _changLoginAccount(item.userid, 'v1-web-form-login', location.href);
+                      }
+                    }}
+                    className={styles['login-user']}
+                  >
+                    <div className={styles['avator-wrap']}>
+                      <Avatar alt="wps" shape="circle" src={item?.avatar_url} />
+                    </div>
+                    <div className={styles['nickname-wrap']}>
+                      <div className={classNames(styles._rsbc, styles.name)}>
+                        <span>{item.nickname}</span>
+                        {item.is_current && <CheckIcon style={{ color: '#0a6cff' }}></CheckIcon>}
+                      </div>
+                      <div className={styles['ellipsis']} title="个人账号">
+                        {item?.company_name}
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
               <div className={styles['other-login']}>
-                <Avatar className={styles._rfcsf} shape="circle" icon={<AddIcon></AddIcon>} />
+                <Avatar
+                  alt="wps"
+                  className={styles._rfcsf}
+                  shape="circle"
+                  icon={<AddIcon></AddIcon>}
+                />
                 <div>登陆其他账号</div>
               </div>
             </div>
@@ -203,77 +202,15 @@ export default function Header() {
         );
       },
       // 搜索页面弹出内容
-      searchContent: () => {
-        return (
-          <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} spinning={isloading}>
-            <div className={styles['search-content']}>
-              {!isloading && froms.length === 0 && (
-                <Empty imgUrl="/images/empty-search.png" title="暂无搜索结果"></Empty>
-              )}
-              {
-                froms.length > 0 && <>
-                  {
-                    froms.map(item => <div className={classNames(styles['text-hover'], styles['_rsbc'])}>
-                      <div>{heigthKeyWord(item.title, intuRef.current?.input?.value as string)}</div>
-                      <span>{formatTimeRelative(item.create_ts)} 发布</span>
-                    </div>)
-                  }
-                </>
-              }
-            </div>
-          </Spin>
-        );
-      },
     };
-  }, [froms, userInfo, isloading]);
-
-  // 之后可以尝试修改搜索防抖
-  const handleChange = useCallback(
-    debounce((value: string) => {
-      if (intuRef.current) {
-        _searchForms({
-          keyword: value,
-          limit: 10,
-          start: 0,
-          _t: Date.now(),
-        });
-      }
-    }, 300),
-    []
-  );
+  }, [userInfo]);
 
   const menuContent = <div></div>;
   return (
     <div className={styles.header}>
       <div className={styles['input-wrapper']}>
         <div className={styles['input-wrap']}>
-          <Popover
-            destroyTooltipOnHide={true}
-            open={searchContentOpen}
-            className={styles._rfcsf}
-            placement="bottom"
-            arrow={false}
-            rootClassName={styles['search-content-popover']}
-            // openClassName={styles['search-content-popover']}
-            content={popoverContents.searchContent()}
-          >
-            <Input
-              allowClear={true}
-              onChange={e => {
-                if (!e.target.value) {
-                  setSearchContentOpen(false);
-                  return;
-                }
-                setSearchContentOpen(true);
-                handleChange(e.target.value as string);
-              }}
-              ref={intuRef}
-              placeholder="搜索表单"
-              prefix={
-                <SearchIcon style={{ color: '#0a6cff' }}></SearchIcon>
-              }
-            />
-          </Popover>
+          <SearchForm />
         </div>
       </div>
       <div className={styles['user-panel']}>
@@ -285,7 +222,7 @@ export default function Header() {
             content={popoverContents.ksapcAppContent()}
             arrow={false}
           >
-            <img src="/images/menu.png" className={styles['menu-icon']} alt="" />
+            <img alt={'wps'} src="/images/menu.png" className={styles['menu-icon']} />
           </Popover>
         </div>
         <div>
@@ -296,7 +233,7 @@ export default function Header() {
             content={menuContent}
             arrow={false}
           >
-            <img src="/images/Ling.png" className={styles['menu-icon']} alt="" />
+            <img alt={'wps'} src="/images/Ling.png" className={styles['menu-icon']} />
           </Popover>
         </div>
         <div className={styles['gap-line']}></div>
@@ -319,7 +256,11 @@ export default function Header() {
               content={popoverContents.userInfoContent()}
               arrow={false}
             >
-              <Avatar shape="circle" src={'https://avatar.qwps.cn/avatar/V1BTXzE2OTM1MzIwODc='} />
+              <Avatar
+                alt="wps"
+                shape="circle"
+                src={'https://avatar.qwps.cn/avatar/V1BTXzE2OTM1MzIwODc='}
+              />
             </Popover>
           </div>
         </div>

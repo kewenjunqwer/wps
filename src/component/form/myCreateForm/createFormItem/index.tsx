@@ -1,6 +1,6 @@
 import styles from './style.module.scss';
 import { Button, Checkbox, Popover } from 'antd';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import classNames from 'classnames';
 import { ReactComponent as StarIcon } from '../../../../assets/form/star.svg';
 import { ReactComponent as UnstarIcon } from '../../../../assets/form/unstar.svg';
@@ -22,52 +22,71 @@ interface Props {
 }
 export function FormItem({ item, title, formItemSet, operateIconClick, ondelete }: Props) {
   const { selectForm, activeFormIds, _starForm } = useContext(formContext);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  // 找到当前formItem的操作弹出项
   const { popoverContent, btnOperate } = formItemSet;
-  const { tags } = useContext(tagContext)
+  const { tags } = useContext(tagContext);
   // 根据form中的tag_id找到所属的标签信息
-  const curTag = tags.filter(cur => cur.tag_id === item.tag_ids)[0]
+  const curTag = tags.filter(cur => cur.tag_id === item.tag_ids)[0];
 
   const operatePopoverContent = () => {
     if (formItemSet.popoverContent) {
       return (
         <div
           style={{ width: 144, padding: 12 }}
-          onClick={e => {
-            // setIsOpen(false);
-          }}
+          // onClick={e => {
+          //   // setIsOpen(false);
+          // }}
         >
           <div>
             {popoverContent.map((item: any) => {
               if (item.node) {
                 return item.node;
               } else {
-                return <PopoverItemLink linkItem={item} />;
+                return <PopoverItemLink key={item.title} linkItem={item} />;
               }
             })}
           </div>
           {/* <PoverItemLinksContent contentLinks={popoverContent} width={150} /> */}
           <div className={styles['gapline']}></div>
-          <div onClick={ondelete} className={styles['delete-wrap']}>
-            删除
-          </div>
+          <PopoverItemLink
+            key={'delete'}
+            linkItem={{ title: '删除', style: { color: 'red' }, onclick: ondelete }}
+          ></PopoverItemLink>
         </div>
       );
     }
   };
+
+  const isActive = activeFormIds?.map(item => item.id).includes(item.item_id);
   return (
     <>
-      <div className={classNames(styles.form, styles['text-hover'])}>
+      <div
+        className={
+          isActive
+            ? classNames(styles.form, styles['text-active'])
+            : classNames(styles.form, styles['text-hover'])
+        }
+      >
         <Checkbox
-          checked={activeFormIds?.map(item => item.id).includes(item.item_id)}
+          style={{ display: isActive ? 'flex' : 'none' }}
+          checked={isActive}
           onChange={e => {
             selectForm(item.item_id, e.target.checked, item.kind);
           }}
           className={styles.checkbox}
         />
         <div className={styles.content}>
-          <div className={styles.left}>
+          <div
+            onClick={() => {
+              if (item.type === FormState.DRAFT) {
+                window.open(
+                  `https://f.wps.cn/ksform/m/create/${item.item_id}?entrance=index_v3_continue#routePromt`
+                );
+              } else {
+                window.open(`https://f.wps.cn/ksform/m/result/${item.item_id}`);
+              }
+            }}
+            className={styles.left}
+          >
             <div className={classNames(styles['left-1'])}>
               <div className={styles['type-info']}>
                 <div className={styles['collect-text']}>{title}</div>
@@ -76,35 +95,21 @@ export function FormItem({ item, title, formItemSet, operateIconClick, ondelete 
             </div>
             {/* 标签操作 */}
             <div className={classNames(styles['item-wrap'], styles['left-2'])}>
-              {
-                curTag && <Popover
+              {curTag && (
+                <Popover
                   destroyTooltipOnHide={true}
                   rootClassName={styles.open}
                   trigger={'hover'}
-                  placement='bottomRight'
+                  placement="bottomRight"
                   arrow={false}
                   content={<span className={styles['tag_hover']}>{curTag.tag_name}</span>}
                 >
                   <div className={styles.item}>
-
                     <div style={{ backgroundColor: curTag.color }} className={styles.banner}></div>
                     <span>{curTag.tag_name}</span>
                   </div>
                 </Popover>
-              }
-
-
-              {/* <Popover>
-                {
-                  curTag &&
-                  <PopoverItemLink linkItem={{
-                    style: { justifyContent: 'flex-start' },
-                    suffix: <div style={{ backgroundColor: curTag.color }} className={styles.banner}></div>,
-                    title: curTag.tag_name
-                  }}></PopoverItemLink>
-
-                }
-              </Popover> */}
+              )}
             </div>
             <div className={classNames(styles['item-wrap'], styles['left-3'])}>
               <div className={styles.text}>
@@ -126,7 +131,8 @@ export function FormItem({ item, title, formItemSet, operateIconClick, ondelete 
             {/* 星标操作 */}
             <div className={classNames(styles['item-wrap'], styles['left-5'])}>
               <div
-                onClick={() => {
+                onClick={e => {
+                  e.stopPropagation();
                   _starForm({ ids: [item.item_id], _t: Date.now(), star: !item.star });
                 }}
               >

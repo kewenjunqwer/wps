@@ -1,6 +1,6 @@
 import { Popover } from 'antd';
 import styles from './style.module.scss';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import classNames from 'classnames';
 import { ReactComponent as ArrowIcon } from '../../../../assets/form/arrow-down-big.svg';
 import { tagContext } from '../../../../context/tag';
@@ -8,7 +8,6 @@ import { ReactComponent as CheckIcon } from '../../../../assets/form/checked.svg
 import { TagList } from '../../../tagcomponent/tagItem';
 import CreateTag from '../../../tagcomponent/createTag';
 import { formContext } from '../../../../context/form';
-import { concat } from 'lodash';
 
 interface UserContext {
   tagOpen?: boolean;
@@ -25,7 +24,6 @@ export default function TagPopover() {
   const [tagOpen, setTagOpen] = useState<boolean>(false);
   const { tags, selectTags, setSeletcTags } = useContext(tagContext);
   const { getForms } = useContext(formContext);
-  console.log(tagOpen);
 
   const popoverContent = () => {
     return (

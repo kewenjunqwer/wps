@@ -21,7 +21,8 @@
     cursor: pointer;
     gap: 4px;
 
-    .img {}
+    .img {
+    }
   }
 
   .complete {
@@ -29,10 +30,9 @@
   }
 }
 
-.ant-spin-container {
-  display: flex;
-  height: 100%;
+:global(.ant-spin-container) {
   width: 100%;
+  height: 100%;
 }
 
 .empty {
@@ -46,22 +46,18 @@
 .form-wrap {
   height: 100%;
   width: 100%;
-}
-
-.formList {
-  flex: 1;
   display: flex;
-
+  flex-direction: column;
 }
 
+.form_list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-.list {
-  flex: 1;
+.spin {
+  height: calc(100% - 40px);
   width: 100%;
   position: relative;
-
-  .ant-spin-container {
-    height: 100%;
-  }
-
 }

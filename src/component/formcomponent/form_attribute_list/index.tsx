@@ -1,13 +1,7 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode } from 'react';
 import styles from './style.module.scss';
-import { Checkbox } from 'antd';
 
 import classNames from 'classnames';
-
-import { formContext } from '../../../context/form';
-import TagPopover from './tagPopover';
-import StarPopover from './starPopover';
-import SelectForm from './formSelect';
 
 interface Props {
   Nodes: ReactNode[];

@@ -40,7 +40,7 @@ export default function LeftSlider() {
       <div className={styles['logo-container']}>
         <div className={styles['logo-info']}>
           <div className={styles['logo-info-wrapper']}>
-            <img src={'/images/logo.svg'} className={styles['logo-img']} />
+            <img alt="wps-logo" src={'/images/logo.svg'} className={styles['logo-img']} />
           </div>
           <h1 className={classNames(styles['logo-text'], styles.ellipsis)} title="金山表单">
             金山表单

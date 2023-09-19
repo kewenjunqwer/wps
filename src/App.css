@@ -1,6 +1,24 @@
 #root {
   height: 100%;
 }
+::-webkit-scrollbar {
+  width: 6px; /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+  height: 4px;
+  background: white;
+}
+
+/*定义滚动条轨道（凹槽）样式*/
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/*定义滑块 样式*/
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  height: 20px; /* 滚动条滑块长度 */
+  background: rgba(0, 0, 0, 0.2);
+}
 
 .logo {
   height: 6em;
@@ -14,7 +32,9 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+button {
+  outline: none !important;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

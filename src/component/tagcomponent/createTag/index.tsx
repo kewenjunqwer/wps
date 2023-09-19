@@ -1,4 +1,4 @@
-import { PropsWithChildren, useContext, useEffect, useLayoutEffect, useState } from 'react';
+import { PropsWithChildren, useContext, useLayoutEffect, useState } from 'react';
 import TagModal from '../tagModal';
 import { tagContext } from '../../../context/tag';
 import { Popover } from 'antd';
@@ -23,7 +23,6 @@ export default function CreateTag(props: PropsWithChildren<Props>) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectColor, setSelectColor] = useState<string>('');
   const [isActive, setIsActive] = useState<boolean>(false);
-
 
   useLayoutEffect(() => {
     if (props.isActiveHighlighted) {

@@ -6,10 +6,10 @@ import MyFillFormProvider from '../../context/myFillForm';
 import { TagProvider } from '../../context/tag';
 
 export default function Form() {
-  const [searchParams, _] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const sidebar = searchParams.get('sidebar');
   const render = () => {
-    if (sidebar === 'mycreate' || sidebar === null) {
+    if (sidebar === 'mycreate' || !sidebar) {
       return (
         <TagProvider>
           <FormProvider>

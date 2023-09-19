@@ -1,7 +1,27 @@
 .select-drop-wrap {
   width: 144px !important;
-  padding: 16px;
-  display: flex;
   justify-content: center;
+  padding: 4px;
+}
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  padding-left: 8px;
+}
 
+.text {
+  // position: absolute;
+  // left: 50px;
+}
+.active {
+  color: #0a6cff;
+}
+.icon {
+  color: black;
+}
+
+:global(.ant-select-selector) {
+  padding: 0px;
 }

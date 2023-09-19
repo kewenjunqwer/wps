@@ -18,15 +18,13 @@
     top: 20px;
     width: 16px;
     height: 16px;
-    display: none;
+    // display: none;
   }
 
   &:hover {
     .checkbox {
-
-      display: block;
+      display: flex !important;
     }
-
   }
 
   .wrap {
@@ -102,6 +100,10 @@
   align-items: center;
   gap: 16px;
 }
+:global(.ant-spin-container) {
+  width: 100%;
+  height: 100%;
+}
 
 .opetate-content {
   .gapline {
@@ -147,25 +149,12 @@
   background-color: #f5f7fa;
   color: rgba(8, 14, 23, 0.9);
 }
-
-.delete-wrap {
-  color: rgb(225, 46, 46);
-  padding: 5px 8px;
-}
-
-.collect {
-  color: #0a6cff;
-  background-color: #e7f4ff;
-}
-
-.unSelect {
-  color: #e12e2e;
-  background-color: #ffefef;
-}
-
-.draft1 {
-  background-color: #ffefe7;
-  color: #f06621;
+.text-active {
+  background-color: rgba(10, 108, 255, 0.1);
+  .gap_line {
+    display: block !important;
+    border-top-color: white;
+  }
 }
 
 .unstar {
@@ -183,7 +172,6 @@
 
 .tag_hover {
   padding: 5px;
-
 }
 
 .open {

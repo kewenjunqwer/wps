@@ -4,7 +4,7 @@ import CryptoJS from 'crypto-js';
 const request = axios.create({
   baseURL,
   withCredentials: true,
-  timeout: 1000,
+  timeout: 5000,
 });
 
 const globalConfig = {
@@ -30,7 +30,8 @@ const interCeptUrl = [
   '/global/template/create',
   '/global/tag/form',
   '/global/fills/delete',
-  '/global/tag/form/create'
+  '/global/tag/form/create',
+  '/global/tag/form/delete',
 ];
 
 // 请求拦截器

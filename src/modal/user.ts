@@ -1,5 +1,3 @@
-import { ApiRes } from './base';
-
 export interface IUser {
   userid: number;
   nickname: string;

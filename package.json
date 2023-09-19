@@ -11,7 +11,7 @@
     "homework": "npx w2 -n kewenjun -w 240093990qwer start && w2 add --force"
   },
   "dependencies": {
-    "antd": "^5.8.5",
+    "antd": "^5.9.2",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
     "crypto-js": "^4.1.1",
@@ -42,7 +42,9 @@
     "react-svg": "^16.1.22",
     "sass": "^1.66.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-cdn-import": "^0.3.5",
+    "vite-plugin-compression": "^0.5.1"
   },
   "config": {
     "commitizen": {

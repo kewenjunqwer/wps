@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styles from './style.module.scss';
 
 interface PopoverLink {
   title: string;
   onclick?: () => void; // 点击事件
-  Icon?: React.FC<React.SVGProps<SVGSVGElement>>; // 文字右侧节点
+  Icon?: ReactNode; // 文字右侧节点
   suffix?: ReactNode; //文字左侧节点
 
   style?: object; // 自定义设置样式
@@ -20,13 +20,12 @@ export function PopoverItemLink(props: { linkItem: PopoverLink }) {
       style={linkItem?.style}
       onClick={() => {
         linkItem.onclick && linkItem.onclick();
-
       }}
       className={classNames(styles.item, styles['text-hover'])}
     >
       {linkItem.suffix && linkItem.suffix}
       <span>{linkItem.title}</span>
-      {linkItem.Icon && <linkItem.Icon />}
+      {linkItem.Icon && linkItem.Icon}
     </div>
   );
 }

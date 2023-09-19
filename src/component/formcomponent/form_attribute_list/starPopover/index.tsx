@@ -18,7 +18,7 @@ export const tagOpenContext = createContext<UserContext>({
 
 export default function StarPopover() {
   const [tagOpen, setTagOpen] = useState<boolean>(false);
-  const { setIsStarForm, isStarForm, getForms } = useContext(formContext);
+  const { setIsStarForm, isStarForm } = useContext(formContext);
 
   const starLinks = [
     {
@@ -50,7 +50,7 @@ export default function StarPopover() {
             className={classNames(styles['item'], styles.flex_bt_center, styles['text-hover'])}
           >
             <span>{item.title}</span>
-            {isStarForm === item.type && <CheckIcon></CheckIcon>}
+            {isStarForm === item.type && <CheckIcon style={{ color: '#0a6cff' }}></CheckIcon>}
           </div>
         ))}
       </div>

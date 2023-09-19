@@ -9,7 +9,6 @@
 }
 
 .input-wrapper {
-
   flex: 1;
 }
 
@@ -68,7 +67,8 @@
     margin-bottom: 16px;
   }
 
-  .list {}
+  .list {
+  }
 }
 
 .wechat-content {
@@ -154,7 +154,6 @@
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
-
         }
       }
     }
@@ -167,17 +166,6 @@
       cursor: pointer;
     }
   }
-}
-
-.search-content {
-  width: 100%;
-  height: 100%;
-  padding: 48px 0px;
-}
-
-.search-content-popover {
-  width: 540px;
-  top: 10px;
 }
 
 .app-img {

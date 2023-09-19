@@ -1,16 +1,17 @@
 import { Select } from 'antd';
 import { ReactComponent as CheckIcon } from '../../../../assets/form/checked.svg';
-import styles from '../style.module.scss';
+import styles from './style.module.scss';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { PopoverItemLink } from '../../popoverItemLink';
 import { ReactComponent as ArrowUp } from '../../../../assets/form/arrow-up.svg';
 import { ReactComponent as ArrowDown } from '../../../../assets/form/arrow-down.svg';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 export default function SelectForm() {
-  const [searchParams, _] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const sidebar = searchParams.get('sidebar');
-  const scene = searchParams.get('scene');
+  const scene = searchParams.get('scene') || 'all';
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -30,13 +31,17 @@ export default function SelectForm() {
       <div className={styles['select-drop-wrap']}>
         {selecetList.map(item => (
           <PopoverItemLink
+            key={item.key}
             linkItem={{
               title: item.title,
               onclick: () => {
                 setIsOpen(false);
                 navigate(`/?scene=${item.key}&sidebar=${sidebar}`);
               },
-              Icon: scene === item.key ? CheckIcon : undefined,
+              Icon:
+                scene === item.key ? (
+                  <CheckIcon style={{ color: '#0a6cff' }}></CheckIcon>
+                ) : undefined,
             }}
           />
         ))}
@@ -46,22 +51,37 @@ export default function SelectForm() {
 
   return (
     <>
-      <Select
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-        open={isOpen}
-        placement="bottomLeft"
-        dropdownRender={renderformSelectDropdown}
-        className={styles.select}
-        style={{ width: 120 }}
-        size="large"
-        suffixIcon={!isOpen ? <ArrowDown></ArrowDown> : <ArrowUp></ArrowUp>}
-        bordered={false}
-        value={selecetList.find(item => item.key === scene)?.title || '全部类型'}
-      >
-        232432434
-      </Select>
+      <div className={styles.wrap}>
+        <span className={!isOpen ? styles.text : classNames(styles.text, styles.active)}>
+          {selecetList.find(item => item.key === scene)?.title || '全部类型'}
+        </span>
+
+        <Select
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+          onBlur={() => {
+            setIsOpen(false);
+          }}
+          open={isOpen}
+          placement="bottomLeft"
+          dropdownRender={renderformSelectDropdown}
+          popupMatchSelectWidth={false}
+          // onDropdownVisibleChange={open => setIsOpen(open)}
+          className={styles.select}
+          style={{ width: 30 }}
+          size="large"
+          suffixIcon={
+            !isOpen ? (
+              <ArrowDown className={styles.icon}></ArrowDown>
+            ) : (
+              <ArrowUp className={styles.icon}></ArrowUp>
+            )
+          }
+          bordered={false}
+          value={''}
+        ></Select>
+      </div>
     </>
   );
 }

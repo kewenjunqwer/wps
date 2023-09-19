@@ -1,4 +1,4 @@
-import { Divider, Input, InputRef, List, Modal, Skeleton } from 'antd';
+import { Input, InputRef, List, Modal } from 'antd';
 import { CollectState, FormState, IForm } from '../../../../modal/form';
 import { FormItem } from '../createFormItem';
 import { useContext, useEffect, useRef, useState } from 'react';
@@ -6,24 +6,22 @@ import { formContext } from '../../../../context/form';
 import ShareForm from '../../../formcomponent/shareForm';
 import { FormPopoVerCreateTag } from '../../../formcomponent/formPopoVerCreateTag';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import styles from './style.module.scss'
+import styles from './style.module.scss';
 import { tagContext } from '../../../../context/tag';
 
 interface IProps {
   forms: IForm[];
 }
 export function FormsList({ forms = [] }: IProps) {
-  const { _createDulicate, printForm, _deleteForm, hasMore,
-    loadMore } = useContext(formContext);
+  const { _createDulicate, printForm, _deleteForm, hasMore, loadMore } = useContext(formContext);
 
-  const { selectTags } = useContext(tagContext)
+  const { selectTags } = useContext(tagContext);
   const [isShoWRename, setIsShoWRename] = useState<boolean>(false);
   const [formName, setFormName] = useState<string>('');
   const [isShowModifyModal, setIsShowModifyModal] = useState<boolean>(false);
   const [isShowCollectModal, setIsShowCollectModal] = useState<boolean>(false);
   const [isShowDelModal, setIsShowDelModal] = useState<boolean>(false);
   const [operateForm, setOperateForm] = useState<IForm>();
-
 
   useEffect(() => {
     setFormName(operateForm?.title as string);
@@ -93,7 +91,7 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: (e: { stopPropagation: () => void }) => {
                 e.stopPropagation();
               },
-              node: <FormPopoVerCreateTag form={item} />,
+              node: <FormPopoVerCreateTag key={item.item_id} form={item} />,
             },
             {
               title: '打印表单',
@@ -104,12 +102,12 @@ export function FormsList({ forms = [] }: IProps) {
             },
             {
               title: '模板分享',
-              onclick: () => { },
-              node: <ShareForm item={item}></ShareForm>,
+              onclick: () => {},
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -171,7 +169,7 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: (e: { stopPropagation: () => void }) => {
                 e.stopPropagation();
               },
-              node: <FormPopoVerCreateTag form={item} />,
+              node: <FormPopoVerCreateTag key={item.item_id} form={item} />,
             },
             {
               title: '打印表单',
@@ -182,12 +180,12 @@ export function FormsList({ forms = [] }: IProps) {
             },
             {
               title: '模板分享',
-              onclick: () => { },
-              node: <ShareForm item={item}></ShareForm>,
+              onclick: () => {},
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -222,7 +220,7 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: (e: { stopPropagation: () => void }) => {
                 e.stopPropagation();
               },
-              node: <FormPopoVerCreateTag form={item} />,
+              node: <FormPopoVerCreateTag key={item.item_id} form={item} />,
             },
             {
               title: '打印表单',
@@ -233,12 +231,12 @@ export function FormsList({ forms = [] }: IProps) {
             },
             {
               title: '模板分享',
-              onclick: () => { },
-              node: <ShareForm item={item}></ShareForm>,
+              onclick: () => {},
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -314,7 +312,7 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: (e: { stopPropagation: () => void }) => {
                 e.stopPropagation();
               },
-              node: <FormPopoVerCreateTag form={item} />,
+              node: <FormPopoVerCreateTag key={item.item_id} form={item} />,
             },
             {
               title: '打印接龙',
@@ -325,12 +323,12 @@ export function FormsList({ forms = [] }: IProps) {
             },
             {
               title: '模板分享',
-              onclick: () => { },
-              node: <ShareForm item={item}></ShareForm>,
+              onclick: () => {},
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -392,12 +390,11 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: (e: { stopPropagation: () => void }) => {
                 e.stopPropagation();
               },
-              node: <FormPopoVerCreateTag form={item} />,
+              node: <FormPopoVerCreateTag key={item.item_id} form={item} />,
             },
             {
               title: '打印接龙',
               onclick: () => {
-                console.log('333333');
                 printForm({ id: item.item_id, is_print: false, _t: Date.now(), kind: item.kind });
               },
             },
@@ -406,11 +403,11 @@ export function FormsList({ forms = [] }: IProps) {
               onclick: () => {
                 printForm({ id: item.item_id, is_print: false, _t: Date.now(), kind: item.kind });
               },
-              node: <ShareForm item={item}></ShareForm>,
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -450,18 +447,17 @@ export function FormsList({ forms = [] }: IProps) {
             {
               title: '打印接龙',
               onclick: () => {
-
                 printForm({ id: item.item_id, is_print: false, _t: Date.now(), kind: item.kind });
               },
             },
             {
               title: '模板分享',
-              onclick: () => { },
-              node: <ShareForm item={item}></ShareForm>,
+              onclick: () => {},
+              node: <ShareForm key={item.item_id} item={item}></ShareForm>,
             },
             {
               title: '文件管理',
-              onclick: () => { },
+              onclick: () => {},
             },
           ],
           btnOperate: {
@@ -480,44 +476,52 @@ export function FormsList({ forms = [] }: IProps) {
   const { _updateForm, _renameForm } = useContext(formContext);
   const inputRef = useRef<InputRef | null>(null);
 
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <>
       <div
+        ref={ref}
         className={styles.box}
         id="scrollableDiv"
         style={{
-          height: '200px',
-          // overflow: 'auto',
+          height: 'calc(100vh - 356px)',
+          overflowY: 'auto',
         }}
       >
         <InfiniteScroll
-          dataLength={100}
-          next={() => { loadMore(selectTags) }}
+          dataLength={forms.length}
+          next={() => {
+            loadMore(selectTags);
+          }}
           hasMore={hasMore}
           loader={<div></div>}
           scrollableTarget="scrollableDiv"
+          scrollThreshold={0.8}
         >
           <List
             dataSource={forms}
-            renderItem={(cur) => <FormItem
-              ondelete={() => {
-                setIsShowDelModal(true);
-              }}
-              operateIconClick={(item: IForm) => {
-                setOperateForm(item);
-              }}
-              title={formItemPopoverConfiguration[cur.kind].title}
-              formItemSet={formItemPopoverConfiguration[cur.kind]
-                .formItemSet(cur)
-                .find((ele: any) => ele.expire === cur.expire && ele.type === cur.type)}
-              key={cur.item_id}
-              item={cur}
-            ></FormItem>}
+            rowKey={'item_id'}
+            renderItem={cur => (
+              <li key={cur.item_id}>
+                <FormItem
+                  ondelete={() => {
+                    setIsShowDelModal(true);
+                  }}
+                  operateIconClick={(item: IForm) => {
+                    setOperateForm(item);
+                  }}
+                  title={formItemPopoverConfiguration[cur.kind].title}
+                  formItemSet={formItemPopoverConfiguration[cur.kind]
+                    .formItemSet(cur)
+                    .find((ele: any) => ele.expire === cur.expire && ele.type === cur.type)}
+                  item={cur}
+                ></FormItem>
+              </li>
+            )}
           ></List>
         </InfiniteScroll>
       </div>
-
 
       {/* 重命名 */}
       <Modal

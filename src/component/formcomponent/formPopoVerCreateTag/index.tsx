@@ -8,19 +8,18 @@ import { ReactComponent as ArrowRigthIcon } from '../../../assets/form/add.svg';
 import { Popover } from 'antd';
 import classNames from 'classnames';
 import { formContext } from '../../../context/form';
-import { FormKinds, IForm } from '../../../modal/form';
+import { IForm } from '../../../modal/form';
 
 // 右侧弹出创建tag标签的选项
 
 interface Props {
-  form: IForm
-
+  form: IForm;
 }
 
 export function FormPopoVerCreateTag({ form }: Props) {
   const { tags } = useContext(tagContext);
   const [isOpen, setIsopen] = useState<boolean>(false);
-  const { _createTagToForm } = useContext(formContext)
+  const { _createTagToForm, _cancelTagToForm } = useContext(formContext);
 
   const content = (
     <div
@@ -29,19 +28,40 @@ export function FormPopoVerCreateTag({ form }: Props) {
       }}
       style={{ width: 200, padding: 12 }}
     >
-      {
-        form.tag_ids && <PopoverItemLink linkItem={{ title: "取消标签", onclick: () => { } }}></PopoverItemLink>
-      }
+      {form.tag_ids && (
+        <PopoverItemLink
+          linkItem={{
+            title: '取消标签',
+            onclick: () => {
+              _cancelTagToForm({
+                item_id: form.item_id,
+                kind: form.kind,
+                _t: Date.now(),
+                tag_id: form.tag_ids,
+              });
+            },
+          }}
+        ></PopoverItemLink>
+      )}
       {/* 标签列表和给form新增或修改一个标签 */}
       {tags.map(item => (
         <div className={classNames(styles.item, styles['text-hover'])}>
-          <PopoverItemLink linkItem={{
-            onclick: () => { _createTagToForm({ item_id: form.item_id, tag_id: item.tag_id, kind: form.kind, _t: Date.now() }) },
-            style: { justifyContent: 'flex-start' },
-            suffix: <div style={{ backgroundColor: item.color }} className={styles.banner}></div>,
-            title: item.tag_name
-          }}></PopoverItemLink>
-
+          <PopoverItemLink
+            key={item.tag_id}
+            linkItem={{
+              onclick: () => {
+                _createTagToForm({
+                  item_id: form.item_id,
+                  tag_id: item.tag_id,
+                  kind: form.kind,
+                  _t: Date.now(),
+                });
+              },
+              style: { justifyContent: 'flex-start' },
+              suffix: <div style={{ backgroundColor: item.color }} className={styles.banner}></div>,
+              title: item.tag_name,
+            }}
+          ></PopoverItemLink>
         </div>
       ))}
       {
@@ -76,7 +96,13 @@ export function FormPopoVerCreateTag({ form }: Props) {
         }}
         onClick={e => e.stopPropagation()}
       >
-        <PopoverItemLink linkItem={form.tag_ids ? { title: "修改标签" } : { title: '添加标签', Icon: ArrowRigthIcon }}></PopoverItemLink>
+        <PopoverItemLink
+          linkItem={
+            form.tag_ids
+              ? { title: '修改标签' }
+              : { title: '添加标签', Icon: <ArrowRigthIcon></ArrowRigthIcon> }
+          }
+        ></PopoverItemLink>
       </div>
     </Popover>
   );

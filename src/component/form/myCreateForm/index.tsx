@@ -25,7 +25,7 @@ export default function MyCreateForm() {
     _deleteForm,
     selecAllForm,
     isloading,
-
+    getForms,
   } = useContext(formContext);
 
   const [isShowDelModal, setIsShowModal] = useState<boolean>(false);
@@ -81,11 +81,16 @@ export default function MyCreateForm() {
   return (
     <>
       {/* 头部 */}
-      <FormHeader title="我创建的">
+      <FormHeader
+        refresh={() => {
+          getForms();
+        }}
+        title="我创建的"
+      >
         {activeFormIds.length > 0 && (
           <div className={styles['operate-wrap']}>
             {rightOperates.map(item => (
-              <div className={styles.item} onClick={item.onclick}>
+              <div key={item.title} className={styles.item} onClick={item.onclick}>
                 <img className={styles.img} src={item.iconHref} />
                 {item.title}
               </div>
@@ -102,52 +107,45 @@ export default function MyCreateForm() {
           </div>
         )}
       </FormHeader>
-
-
-      <Spin wrapperClassName={styles.list} spinning={isloading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
-        {!isloading && forms.length === 0 && (
-          <Empty
-            title={'暂无创建内容'}
-            imgUrl={'/images/empty.png'}
-            footer={
-              <Button
-                type="primary"
-                onClick={() => {
-                  window.open('https://f.wps.cn/forms/templates?from=list&entrance=index_v3');
+      <div className={classNames(styles['form-wrap'], styles._flex, styles.flex_colum)}>
+        <FormAttribute
+          suffix={
+            activeFormIds?.length > 0 ? (
+              <Checkbox
+                checked={activeFormIds.length === forms.length}
+                onChange={e => {
+                  selecAllForm(e.target.checked);
                 }}
-              >
-                新建表单
-              </Button>
-            }
-          ></Empty>
-        )}
-        <div className={classNames(styles['form-wrap'], styles._flex, styles.flex_colum)}>
-          <FormAttribute
-            suffix={
-              activeFormIds?.length > 0 ? (
-                <Checkbox
-                  checked={activeFormIds.length === forms.length}
-                  onChange={e => {
-                    selecAllForm(e.target.checked);
+                className={styles.checkbox}
+              />
+            ) : null
+          }
+          Nodes={Nodes}
+        ></FormAttribute>
+        <Spin
+          wrapperClassName={styles.spin}
+          spinning={isloading}
+          indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
+        >
+          {!isloading && forms.length === 0 && (
+            <Empty
+              title={'暂无创建内容'}
+              imgUrl={'/images/empty.png'}
+              footer={
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    window.open('https://f.wps.cn/forms/templates?from=list&entrance=index_v3');
                   }}
-                  className={styles.checkbox}
-                />
-              ) : null
-            }
-            Nodes={Nodes}
-          ></FormAttribute>
-          {forms.length > 0 && (
-            <div className={styles.form_list}>
-              {/* 头部列表属性 */}
-
-              {/* 我创建的列表项 */}
-              <FormsList forms={forms} />
-            </div>
+                >
+                  新建表单
+                </Button>
+              }
+            ></Empty>
           )}
-
-          <div className={classNames(styles.list, styles._flex, styles._rfcsf)}></div>
-        </div>
-      </Spin>
+          {forms.length > 0 && <FormsList forms={forms} />}
+        </Spin>
+      </div>
 
       <Modal
         centered={true}

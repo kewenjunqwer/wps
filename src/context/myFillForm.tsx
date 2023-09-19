@@ -6,13 +6,19 @@ interface MyFillFormContext {
   myFillForms: MYFillItem[];
   isloading: boolean;
   _deleteMyFillForm: (option: { shareId: string; _t: number }) => Promise<void>;
-  _getFormMyFill: (options: ReqGetForm) => Promise<void>;
+  _getFormMyFill: (options: ReqGetForm) => Promise<MYFillItem[] | undefined>;
+  hasMore: boolean;
+  loadMore: () => Promise<void>;
+  getForms: () => Promise<void>;
 }
 export const fillFormContext = createContext<MyFillFormContext>({
   myFillForms: [],
   isloading: true,
   _deleteMyFillForm: () => Promise.resolve(),
-  _getFormMyFill: () => Promise.resolve(),
+  _getFormMyFill: () => Promise.resolve(undefined),
+  hasMore: true,
+  loadMore: () => Promise.resolve(),
+  getForms: () => Promise.resolve(),
 });
 
 export default function MyFillFormProvider(Props: any) {

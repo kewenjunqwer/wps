@@ -7,9 +7,10 @@ import SelectForm from '../../formcomponent/form_attribute_list/formSelect';
 
 import MyFillFormList from './myFillFormList';
 import { fillFormContext } from '../../../context/myFillForm';
+import _ from 'lodash';
 
 export default function MyFillForm() {
-  const { myFillForms } = useContext(fillFormContext);
+  const { myFillForms, getForms } = useContext(fillFormContext);
 
   console.log(myFillForms);
   // 我创建的泪飙头部相关属性操作
@@ -24,23 +25,27 @@ export default function MyFillForm() {
   return (
     <>
       {/* 头部 */}
-      <FormHeader title="我创建的"></FormHeader>
+      <FormHeader
+        refresh={() => {
+          getForms();
+        }}
+        title="我填写的"
+      ></FormHeader>
       <div className={classNames(styles['form-wrap'], styles._flex, styles.flex_colum)}>
         <div className={styles['ksapc-loading']}>
           <div className={styles['ant-spin-container']}>
-            {
-              myFillForms.length > 0 && <>
+            {myFillForms.length > 0 && (
+              <>
                 {/* 头部列表属性 */}
                 <FormAttribute Nodes={Nodes}></FormAttribute>
                 {/* 我创建的列表项 */}
                 <MyFillFormList forms={myFillForms} />
                 {/* <div className={classNames(styles.list, styles._flex, styles._rfcsf)}></div> */}
               </>
-            }
-
+            )}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

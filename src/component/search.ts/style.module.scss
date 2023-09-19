@@ -1,0 +1,54 @@
+@import '../../common.scss';
+.serch-wrap {
+  padding: 12px;
+  width: 540px;
+  max-height: 300px;
+}
+#scrollableDiv {
+  overflow-y: auto;
+  max-height: 200px;
+}
+.search-content {
+  width: 100%;
+  min-height: 200px;
+}
+.search-content-popover {
+  top: 10px;
+  padding: 12px;
+}
+.highlight {
+  background-color: #fff8c8;
+  border-radius: 2px;
+  border: 1px solid #ffdb77;
+}
+.item {
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.tip {
+  color: rgba(8, 14, 23, 0.46);
+  font-weight: 400;
+}
+.spin {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  // justify-content: center;
+}
+@media screen and (max-width: 995px) {
+  .serch-wrap {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .serch-wrap {
+    width: 420px !important;
+  }
+  .serch-wrap {
+    width: 420px !important;
+    position: relative;
+  }
+}

@@ -23,7 +23,7 @@ export function MyFillItem({ item, title, formItemSet, operateIconClick }: Props
       return (
         <div
           style={{ width: 144, padding: 12 }}
-          onClick={e => {
+          onClick={() => {
             // setIsOpen(false);
           }}
         >
@@ -32,7 +32,7 @@ export function MyFillItem({ item, title, formItemSet, operateIconClick }: Props
               if (item.node) {
                 return item.node;
               } else {
-                return <PopoverItemLink linkItem={item} />;
+                return <PopoverItemLink key={item.title} linkItem={item} />;
               }
             })}
           </div>
@@ -44,7 +44,16 @@ export function MyFillItem({ item, title, formItemSet, operateIconClick }: Props
     <>
       <div className={classNames(styles.form, styles['text-hover'])}>
         <div className={styles.content}>
-          <div className={styles.left}>
+          <div
+            onClick={() => {
+              if (item.draft) {
+                window.open(`https://f.wps.cn/ksform/w/write/${item.share_id}#routePromt`);
+              } else {
+                window.open(`https://f.wps.cn/ksform/w/write-list/${item.share_id}`);
+              }
+            }}
+            className={styles.left}
+          >
             <div className={classNames(styles['left-1'])}>
               <div className={styles['type-info']}>
                 <div className={styles['collect-text']}>{title}</div>
